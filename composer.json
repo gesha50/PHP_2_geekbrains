@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/PHP_2_Geek",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Gesha",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "1.14.0"
+  }
+}

@@ -12,10 +12,8 @@ try {
         echo "SQL ошибка: " . $error_array[2] . "<br />";
     }
 
-    $i = 0;
     while ($rows = $result->fetch()){
-        $goods[$i] = [$rows['title'],$rows['desc'],$rows['img'],$rows['price']];
-        $i++;
+        $goods[] = [$rows['title'],$rows['desc'],$rows['img'],$rows['price']];
         $id = $rows['test_id'];
     }
 

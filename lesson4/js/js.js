@@ -16,6 +16,7 @@ function showMore (id)
                 alert('Хьюстон, У нас проблемы! ' + text + ' | ' + error);
             },
             success: function (answer) {
+                console.log(answer)
                 let elem = document.querySelector('.goodsItem')
                 let elemButton = document.querySelector('button')
                 for (let key in answer){

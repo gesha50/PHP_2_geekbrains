@@ -14,10 +14,8 @@ try {
         echo "SQL ошибка: " . $error_array[2] . "<br />";
     }
 
-    $i = 0;
     while ($rows = $result->fetch()){
-        $goods[$i] = [$rows['test_id'],$rows['title'],$rows['desc'],$rows['img'],$rows['price']];
-        $i++;
+        $goods[] = [$rows['test_id'],$rows['title'],$rows['desc'],$rows['img'],$rows['price']];
     }
     echo json_encode($goods);
 }

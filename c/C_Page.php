@@ -6,7 +6,7 @@ class C_Page extends C_Base
 {
 	
 	public function action_index(){
-		$this->title .= 'Главная';
+		$this->title .= '';
 		$text = text_get();
 		//$today = date();
 		$this->content = $this->Template('v/v_index.php', array('text' => $text));	

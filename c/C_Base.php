@@ -11,7 +11,7 @@ abstract class C_Base extends C_Controller
 
      protected function before(){
 
-		$this->title = '';
+		$this->title = 'ТК Львово';
 		$this->content = '';
 		$this->keyWords="...";
 

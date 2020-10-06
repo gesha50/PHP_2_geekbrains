@@ -28,7 +28,7 @@ class M_User {
 
     public function getAll ($table) {
         $sql = self::$db->prepare("select * from {$table}");
-        //$sql->bindValue(':table', $table, PDO::PARAM_STR);
+        //$sql->bindTable(':table', $table, PDO::PARAM_STR);
         $sql->execute();
         $res = $sql->fetchAll(PDO::FETCH_ASSOC);
         return $res;

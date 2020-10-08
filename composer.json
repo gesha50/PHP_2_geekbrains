@@ -1,16 +1,12 @@
 {
-  "name": "vendor_name/PHP_2_Geek",
-  "description": "description",
+  "name": "vendor_name/package_name",
+  "description": "description_text",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
-      "name": "Gesha",
+      "name": "author's name",
       "email": "email@example.com"
     }
-  ],
-  "require": {
-    "twig/twig": "1.14.0",
-    "components/jquery": "3.5.1"
-  }
+  ]
 }

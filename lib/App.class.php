@@ -43,10 +43,11 @@ class App
             $controller = new $controllerName();
 
 
+
             $data = [
                 'content_data' => $controller->$methodName($_GET),
                 'title' => $controller->title,
-                'categories' => Category::getCategories(2)
+                'categories' => Category::getCategories(1)
             ];
 
             $view = $controller->view . '/' . $methodName . '.html';

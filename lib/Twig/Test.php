@@ -10,7 +10,7 @@
  */
 
 /**
- * Represents a template test.
+ * Represents a template catalog.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -23,10 +23,10 @@ class Twig_Test
     private $options;
 
     /**
-     * Creates a template test.
+     * Creates a template catalog.
      *
-     * @param string        $name     Name of this test
-     * @param callable|null $callable A callable implementing the test. If null, you need to overwrite the "node_class" option to customize compilation.
+     * @param string        $name     Name of this catalog
+     * @param callable|null $callable A callable implementing the catalog. If null, you need to overwrite the "node_class" option to customize compilation.
      * @param array         $options  Options array
      */
     public function __construct($name, callable $callable = null, array $options = array())
@@ -47,7 +47,7 @@ class Twig_Test
     }
 
     /**
-     * Returns the callable to execute for this test.
+     * Returns the callable to execute for this catalog.
      *
      * @return callable|null
      */

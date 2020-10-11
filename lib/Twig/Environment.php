@@ -757,11 +757,11 @@ class Twig_Environment
     }
 
     /**
-     * Gets a test by name.
+     * Gets a catalog by name.
      *
-     * @param string $name The test name
+     * @param string $name The catalog name
      *
-     * @return Twig_Test|false A Twig_Test instance or false if the test does not exist
+     * @return Twig_Test|false A Twig_Test instance or false if the catalog does not exist
      *
      * @internal
      */

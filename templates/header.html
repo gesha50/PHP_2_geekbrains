@@ -11,18 +11,18 @@
     <nav>
         <span><a href="index.php">Главная</a></span>
         <span><a href="index.php?path=catalog">Каталог</a></span>
-        <span><a class="cart" href="#">Корзина</a></span>
+        <span><a class="cart" href="#">Корзина <span id="cart__counter"></span></a></span>
     </nav>
-        <ul>
-            {% for category in categories %}
-            <li>
-                <a href="/categories/?id={{ category.id_category }}" link="{{ category.id_category }}" class="category-link">{{ category.name }}</a>
-            </li>
-            {% endfor %}
-        </ul>
+<!--        <ul>-->
+<!--            {% for category in categories %}-->
+<!--            <li>-->
+<!--                <a href="/categories/?id={{ category.id_category }}" link="{{ category.id_category }}" class="category-link">{{ category.name }}</a>-->
+<!--            </li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
 
     <div>
-        <a href="/user/">Личный кабинет</a>
+<!--        <a href="/user/">Личный кабинет</a>-->
     </div>
 
 

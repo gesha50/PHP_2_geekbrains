@@ -10,7 +10,7 @@
  */
 
 /**
- * Integration test helper.
+ * Integration catalog helper.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Karma Dordrak <drak@zikula.org>
@@ -77,11 +77,11 @@ abstract class Twig_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
         $tests = array();
 
         foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fixturesDir), RecursiveIteratorIterator::LEAVES_ONLY) as $file) {
-            if (!preg_match('/\.test$/', $file)) {
+            if (!preg_match('/\.catalog$/', $file)) {
                 continue;
             }
 
-            if ($legacyTests xor false !== strpos($file->getRealpath(), '.legacy.test')) {
+            if ($legacyTests xor false !== strpos($file->getRealpath(), '.legacy.catalog')) {
                 continue;
             }
 
@@ -107,7 +107,7 @@ abstract class Twig_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
         }
 
         if ($legacyTests && empty($tests)) {
-            // add a dummy test to avoid a PHPUnit message
+            // add a dummy catalog to avoid a PHPUnit message
             return array(array('not', '-', '', array(), '', array()));
         }
 

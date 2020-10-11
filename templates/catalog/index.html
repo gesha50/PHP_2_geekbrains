@@ -2,12 +2,13 @@
 
 <div class="catalog">
 {% for catalog in content_data %}
+    <a href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
 <div class="item">
 <h3>{{ catalog.title }}</h3><img class="img" src="#" alt="фото">
 <p>{{ catalog.price }}</p>
 <p>{{ catalog.desc }}</p>
     <button data-id="{{ catalog.catalog_id }}" class="btnBuy">Купить</button>
-</div>
+</div></a>
 {% endfor %}
 </div>
 {% include 'footer.html' %}

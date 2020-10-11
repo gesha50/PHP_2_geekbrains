@@ -1,6 +1,6 @@
 <?php
 require_once 'autoload.php';
-
+//require 'model/providerClasses.php';
 try{
     App::init();
 }

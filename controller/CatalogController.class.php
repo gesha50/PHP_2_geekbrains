@@ -2,7 +2,7 @@
 
 class CatalogController extends Controller
 {
-    public $view = 'test';
+    public $view = 'catalog';
     public $title;
 
     function __construct()
@@ -15,6 +15,12 @@ class CatalogController extends Controller
         $obj = new Catalog();
         //нужно получить данные из модели и вернуть их для отображения в представлении
         return $obj->getGoods();
+    }
+
+    function oneGood($id){
+        $obj = new Catalog();
+        //нужно получить данные из модели и вернуть их для отображения в представлении
+        return $obj->getOneGood($id);
     }
 
 }

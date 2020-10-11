@@ -1,19 +1,24 @@
 $(document).ready(function(){
-   $('#buyme').on('click', function(){
-       var id_good = $(this).attr("class").substr(5);
-
+   $('.btnBuy').on('click', function(){
+       let id_good = $(this).attr("data-id");
+       let className = 'Cart';
+       let actionName = 'index';
        $.ajax({
-           url: "/order/add/",
+           url: "../model/providerClasses.php", // providerClasses
            type: "POST",
            data:{
-               id_good: id_good,
-               quantity: 1
+               params: [id_good, 1],
+               class: className,
+               action: actionName
            },
-           error: function() {alert("Что-то пошло не так...");},
+           //dataType : "json",
+           // error: function() {
+           //     alert("Что-то пошло не так...");
+           // },
            success: function(answer){
-               alert("Товар добавлен в корзину!");
-           },
-           dataType : "json"
+               console.log(answer)
+               $('#cart__counter').text(answer);
+           }
        })
    });
 });

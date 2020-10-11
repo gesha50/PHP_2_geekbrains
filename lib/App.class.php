@@ -45,7 +45,7 @@ class App
 
 
             $data = [
-                'content_data' => $controller->$methodName($_GET),
+                'content_data' => $controller->$methodName($_GET['id']),
                 'title' => $controller->title,
                 'categories' => Category::getCategories(1)
             ];

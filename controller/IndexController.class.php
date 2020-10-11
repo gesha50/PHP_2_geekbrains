@@ -13,14 +13,14 @@ class IndexController extends Controller
 	
 	//метод, который отправляет в представление информацию в виде переменной content_data
 	function index($data){
-		 return "test";
+		 return "catalog";
 	}
 
-	/*function test($id){
+	/*function catalog($id){
 
     }
 */
 
 }
 
-//site/index.php?path=index/test/5
+//site/index.php?path=index/catalog/5

@@ -45,7 +45,12 @@ class db
     public function Query($query, $params = array())
     {
         $res = $this->db->prepare($query);
-        $res->execute($params);
+        if ($params){
+            $res->execute($params);
+        } else {
+            $res->execute();
+
+        }
         return $res;
     }
 
@@ -59,5 +64,19 @@ class db
             return $result->fetchAll();
         }
     }
+
+    public function Insert($query, $params = array())
+    {
+        $result = $this->Query($query);
+        if ($result) {
+            return $result->fetchAll();
+        }
+    }
+
+//    public function getCount ($query){
+//        $result = $this->db->prepare($query);
+//        $result->execute();
+//        return $result->fetch();
+//    }
 }
 ?>

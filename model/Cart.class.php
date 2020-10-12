@@ -10,10 +10,9 @@ class Cart
     }
 
     public function index ($params){
-       //$res = db::getInstance()->Insert('insert into basket (id_catalog, id_user, counter) values (1,555,3)');
-        $res = db::getInstance()->Select(
-            'SELECT * FROM catalog');
-        return $res;
+       $res = db::getInstance()->Insert('insert into basket (id_catalog, id_user, counter) values (1,555,3)');
+
+       echo $res;
     }
 
 //    public function getCounter ($params){

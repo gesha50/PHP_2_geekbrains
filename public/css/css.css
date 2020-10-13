@@ -1,0 +1,22 @@
+.item {
+    background-color: aliceblue;
+    text-align: center;
+}
+.item:hover {
+    background-color: rgba(119, 157, 205, 0.26);
+}
+
+.img {
+    background-color: #fff;
+    float: left;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.cart {
+    float: right;
+}

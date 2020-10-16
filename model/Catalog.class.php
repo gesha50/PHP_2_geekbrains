@@ -1,10 +1,10 @@
 <?php
+
 class Catalog {
 
     function getGoods(){
 
-         $res = db::getInstance()->Select(
-             'SELECT * FROM catalog');
+         $res = db::getInstance()->Select('SELECT * FROM catalog');
          return $res;
     }
 

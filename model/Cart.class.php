@@ -1,27 +1,42 @@
 <?php
 
+require_once '../lib/db.class.php';
 
-class Cart
+class Cart extends Model
 {
 
-    public function __construct($action, $params)
+    public function __construct()
     {
-        $this->$action($params);
+        //$this->$action($params);
     }
 
-    public function index ($params){
-       $res = db::getInstance()->Insert('insert into basket (id_catalog, id_user, counter) values (1,555,3)');
-
-       echo $res;
+    public function add ($id){
+        $isItemInCart = $this->isItemInCart($id);
+        echo $isItemInCart;
+        if($isItemInCart){
+            $res =  db::getInstance()->Insert('update basket set counter=counter+1 where id_catalog= :id_catalog',['id_catalog'=> $id ]);   //увеличиваем counter
+        } else {
+            $res =  db::getInstance()->Update('insert into basket (id_catalog, id_user, counter)
+                                                    values ( :id_catalog ,3,5)', ['id_catalog' => $id]);
+        }
+        $res2 = $this->getCounter();
     }
 
-//    public function getCounter ($params){
-//        $res = db::getInstance()->Select(
-//            'SELECT count(*) FROM basket');
-//        //$isItemInBasket = false;
-//
-//        echo $res;
-//    }
+    public function getCounter (){
+        $res = db::getInstance()->Select(
+            'SELECT count(*) as counter FROM basket');
+        echo json_encode($res);
+    }
+
+    public function isItemInCart ($id) {
+        $res = db::getInstance()->Select('SELECT id_catalog FROM basket');
+        foreach ($res as $item) {
+            if($item['id_catalog'] == $id){
+                return  true;
+            }
+        }
+        return false;
+    }
 
 }
 

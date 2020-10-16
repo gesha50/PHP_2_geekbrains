@@ -1,18 +1,18 @@
 $(document).ready(function(){
    $('.btnBuy').on('click', function(){
        let id_good = $(this).attr("data-id");
-       let className = 'Cart';
-       let actionName = 'index';
+       // let className = 'Cart';
+       // let actionName = 'index';
 
        $.ajax({
-           url: "../model/providerClasses.php", // providerClasses
-           type: "POST",
+           url: "index.php?path=Cart/add/",  // /index.php?path=Cart  /Cart/add/
+           type: "GET",
            data:{
                params: id_good,
-               class: className,
-               action: actionName
+               // class: className,
+               // action: actionName
            },
-           //dataType : "json",
+           dataType : "json",
            // error: function() {
            //     alert("Что-то пошло не так...");
            // },
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
                //getCounter(id_good);
                //console.log(answer)
-               $('#cart__counter').text(answer);
+               $('#cart__counter').text(answer[0].counter);
            }
        })
    });

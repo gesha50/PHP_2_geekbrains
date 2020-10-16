@@ -49,7 +49,6 @@ class db
             $res->execute($params);
         } else {
             $res->execute();
-
         }
         return $res;
     }
@@ -67,16 +66,22 @@ class db
 
     public function Insert($query, $params = array())
     {
-        $result = $this->Query($query);
+        $result = $this->Query($query, $params);
         if ($result) {
-            return $result->fetchAll();
+            return $result->rowCount();
+        }
+//        $res = $this->db->prepare($query);
+//
+//        $res->execute();
+//
+//        return $res->rowCount();
+    }
+    public function Update($query, $params = array())
+    {
+        $result = $this->Query($query, $params);
+        if ($result) {
+            return $result->rowCount();
         }
     }
-
-//    public function getCount ($query){
-//        $result = $this->db->prepare($query);
-//        $result->execute();
-//        return $result->fetch();
-//    }
 }
 ?>

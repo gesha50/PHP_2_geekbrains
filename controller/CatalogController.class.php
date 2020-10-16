@@ -23,6 +23,14 @@ class CatalogController extends Controller
         return $obj->getOneGood($id);
     }
 
+//    function add(){
+//       $_GET['asAjax'] = true;
+//        $id = $_POST['params'];
+//        $obj = new Cart();
+//       return $obj->index($id);
+//        echo 3333;
+//    }
+
 }
 
 

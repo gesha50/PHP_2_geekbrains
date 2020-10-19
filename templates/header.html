@@ -12,7 +12,16 @@
     <nav>
         <span><a href="index.php">Главная</a></span>
         <span><a href="index.php?path=catalog">Каталог</a></span>
-        <span class="cart"><a href="#">Корзина </a><span id="cart__counter"></span></span>
+        <span class="cart"><a href="index.php?path=cart">Корзина </a>
+
+<!--            Если корзина пустая, то 0 не показываем-->
+            {% if (cartQuantity) %}
+            <span id="cart__counter">{{ cartQuantity }}   </span>
+        {%  else  %}
+            <span id="cart__counter"></span>
+            {% endif %}
+
+        </span>
     </nav>
 <!--        <ul>-->
 <!--            {% for category in categories %}-->

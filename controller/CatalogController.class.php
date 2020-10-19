@@ -5,31 +5,35 @@ class CatalogController extends Controller
     public $view = 'catalog';
     public $title;
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->title .= ' | Тестовая страница';
     }
 
-    function index(){
+    public function index(){
         $obj = new Catalog();
         //нужно получить данные из модели и вернуть их для отображения в представлении
         return $obj->getGoods();
     }
 
-    function oneGood($id){
+    public function oneGood($id){
         $obj = new Catalog();
         //нужно получить данные из модели и вернуть их для отображения в представлении
         return $obj->getOneGood($id);
     }
 
-//    function add(){
-//       $_GET['asAjax'] = true;
-//        $id = $_POST['params'];
-//        $obj = new Cart();
-//       return $obj->index($id);
-//        echo 3333;
-//    }
+    public function add(){
+        $id = $_GET['params'];
+        //$_GET['asAjax'] = true;
+        $odj = new Cart;
+        $odj->add($id);
+    }
+
+    public function quantity(){
+        $_GET['asAjax'] = true;
+        Cart::quantity();
+    }
 
 }
 

@@ -2,8 +2,12 @@
 
 class Catalog {
 
-    function getGoods(){
+    public function __construct()
+    {
 
+    }
+
+    function getGoods(){
          $res = db::getInstance()->Select('SELECT * FROM catalog');
          return $res;
     }

@@ -68,14 +68,10 @@ class db
     {
         $result = $this->Query($query, $params);
         if ($result) {
-            return $result->rowCount();
+            return $result->fetch();
         }
-//        $res = $this->db->prepare($query);
-//
-//        $res->execute();
-//
-//        return $res->rowCount();
     }
+
     public function Update($query, $params = array())
     {
         $result = $this->Query($query, $params);

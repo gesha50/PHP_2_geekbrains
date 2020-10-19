@@ -1,49 +1,34 @@
 $(document).ready(function(){
-   $('.btnBuy').on('click', function(){
-       let id_good = $(this).attr("data-id");
-       // let className = 'Cart';
-       // let actionName = 'index';
+    $('.btnBuy').on('click', function(){
+        let id_good = $(this).attr("data-id");
 
-       $.ajax({
-           url: "index.php?path=Cart/add/",  // /index.php?path=Cart  /Cart/add/
-           type: "GET",
-           data:{
-               params: id_good,
-               // class: className,
-               // action: actionName
-           },
-           dataType : "json",
-           // error: function() {
-           //     alert("Что-то пошло не так...");
-           // },
-           success: function(answer){
-
-               //getCounter(id_good);
-               //console.log(answer)
-               $('#cart__counter').text(answer[0].counter);
-           }
-       })
-   });
+        $.ajax({
+            url: "index.php?path=Catalog/add/",  // /index.php?path=Cart  /Cart/add/
+            type: "GET",
+            data:{
+                params: id_good
+            },
+            //dataType : "json",
+            // error: function() {
+            //     alert("Что-то пошло не так...");
+            // },
+            success: function(answer){
+                ajaxQuantity();
+            }
+        })
+    });
 });
 
-function getCounter(id) {
-    let className = 'Cart';
-    let actionName = 'getCounter';
+function ajaxQuantity() {
     $.ajax({
-        url: "../model/providerClasses.php", // providerClasses
+        url: "index.php?path=Catalog/quantity/",
         type: "POST",
-        data:{
-            params: id,
-            class: className,
-            action: actionName
-        },
-        //dataType: "json",
+        dataType: "json",
         error: function() {
             alert("Что-то пошло не так...");
         },
         success: function(answer){
-            console.log(answer[0])
-            $('#cart__counter').text(answer);
+            $('#cart__counter').text(answer['cartQuantity']);
         }
     })
 }

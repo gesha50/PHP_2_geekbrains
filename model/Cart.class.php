@@ -1,31 +1,37 @@
 <?php
 
-require_once '../lib/db.class.php';
+//require_once '../lib/db.class.php';
 
-class Cart extends Model
+class Cart
 {
+    public $id_user;
+    public $counter;
 
     public function __construct()
     {
-        //$this->$action($params);
+        $this->id_user = $_SESSION['id_user'];
+    }
+
+    public function getGoods () {
+        $res = db::getInstance()->Select('SELECT title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
+        return $res;
     }
 
     public function add ($id){
         $isItemInCart = $this->isItemInCart($id);
-        echo $isItemInCart;
         if($isItemInCart){
-            $res =  db::getInstance()->Insert('update basket set counter=counter+1 where id_catalog= :id_catalog',['id_catalog'=> $id ]);   //увеличиваем counter
+            $res =  db::getInstance()->Update('update basket set counter=counter+1 where id_catalog= :id_catalog',['id_catalog'=> $id ]);   //увеличиваем counter
         } else {
-            $res =  db::getInstance()->Update('insert into basket (id_catalog, id_user, counter)
-                                                    values ( :id_catalog ,3,5)', ['id_catalog' => $id]);
+            $res =  db::getInstance()->Insert('insert into basket (id_catalog, id_user, counter)
+        values ( :id_catalog , :id_user, 1)', ['id_catalog' => $id, 'id_user' => $this->id_user]);
         }
-        $res2 = $this->getCounter();
     }
 
-    public function getCounter (){
+    public function quantity (){
         $res = db::getInstance()->Select(
             'SELECT count(*) as counter FROM basket');
-        echo json_encode($res);
+        return $res[0]['counter'];
+        //echo json_encode($res);
     }
 
     public function isItemInCart ($id) {

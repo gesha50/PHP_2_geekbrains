@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+
+
+
+<div class="catalog">
+    {% for item in content_data %}
+        <div class="item">
+            <a href="index.php?path=catalog/oneGood/{{ item.id_catalog }}">
+{#                <h3>{{ item.title }}</h3><img class="img" src="#" alt="фото">#}
+                <p>{{ item.title }}</p>
+                <p>Цена: {{ item.price }}</p>
+                <p>Кол-во: {{ item.counter }}</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+{% include 'footer.html' %}

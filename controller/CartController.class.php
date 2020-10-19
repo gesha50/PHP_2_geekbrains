@@ -9,13 +9,12 @@ class CartController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->title = 'Корзина';
     }
 
-    public function add () {
-        $id = $_GET['params'];
-        //$_GET['asAjax'] = true;
-        $odj = new Cart;
-        $odj->add($id);
+    public function index ($id) {
+        $obj = new Cart();
+        return $obj->getGoods();
     }
 
 }

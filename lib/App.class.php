@@ -6,7 +6,8 @@ class App
     {
         date_default_timezone_set('Europe/Moscow');
         db::getInstance()->Connect(Config::get('db_user'), Config::get('db_password'), Config::get('db_base'));
-
+        session_start();
+        $_SESSION['id_user'] = session_id();
         if (php_sapi_name() !== 'cli' && isset($_SERVER) && isset($_GET)) {
             self::web($_GET['path'] ? $_GET['path'] : '');
         }
@@ -47,7 +48,8 @@ class App
             $data = [
                 'content_data' => $controller->$methodName($_GET['id']),
                 'title' => $controller->title,
-                'categories' => Category::getCategories(1)
+                'categories' => Category::getCategories(1),
+                'cartQuantity' => Cart::quantity()
             ];
 
             $view = $controller->view . '/' . $methodName . '.html';

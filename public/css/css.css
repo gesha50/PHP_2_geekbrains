@@ -21,6 +21,26 @@
     float: right;
 }
 
+.cartItem{
+    display: flex;
+    justify-content: space-around;
+}
+
 a {
     text-decoration: none;
+}
+
+.count__div{
+    display: flex;
+
+}
+
+.btn {
+    margin: 25px;
+    font-size: 25px;
+}
+
+.totalPrice {
+    float: right;
+    margin-right: 25px;
 }

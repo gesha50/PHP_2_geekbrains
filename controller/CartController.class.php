@@ -17,4 +17,24 @@ class CartController extends Controller
         return $obj->getGoods();
     }
 
+    public function increment ($a){
+        $_GET['asAjax'] = true;
+        $id = (int)$_GET['params'];
+        $obj = new Cart();
+        return $obj->increment($id);
+    }
+
+    public function decrement ($a){
+        $_GET['asAjax'] = true;
+        $id = (int)$_GET['params'];
+        $counter = (int)$_GET['count'];
+        $obj = new Cart();
+        if ($counter == 1) {
+            return $obj->delete($id);
+        }
+        return $obj->decrement($id);
+    }
+
+
+
 }

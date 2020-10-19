@@ -13,7 +13,8 @@ class Cart
     }
 
     public function getGoods () {
-        $res = db::getInstance()->Select('SELECT title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
+        $res[0] = db::getInstance()->Select('SELECT id_catalog, title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
+        $res[1] = db::getInstance()->Select('SELECT sum(price*counter) as total FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
         return $res;
     }
 
@@ -42,6 +43,25 @@ class Cart
             }
         }
         return false;
+    }
+
+    public function increment ($id) {
+        $res = db::getInstance()->Update('update basket set counter=counter+1
+                                                where id_catalog = :id_catalog',['id_catalog'=> $id ]);
+        $res2 = db::getInstance()->Select('select counter from basket where id_catalog = :id_catalog',['id_catalog'=> $id ]);
+        return $res2;
+    }
+
+    public function delete ($id) {
+        $res = db::getInstance()->Delete('delete from basket where id_catalog = :id_catalog',['id_catalog'=> $id ]);
+        return $res;
+    }
+
+    public function decrement ($id) {
+        $res = db::getInstance()->Update('update basket set counter=counter-1
+                                                where id_catalog = :id_catalog',['id_catalog'=> $id ]);
+        $res2 = db::getInstance()->Select('select counter from basket where id_catalog = :id_catalog',['id_catalog'=> $id ]);
+        return $res2;
     }
 
 }

@@ -2,16 +2,26 @@
 
 
 
-<div class="catalog">
-    {% for item in content_data %}
-        <div class="item">
+<div class="cartCatalog">
+    {% for item in content_data[0] %}
+        <div class="cartItem">
             <a href="index.php?path=catalog/oneGood/{{ item.id_catalog }}">
-{#                <h3>{{ item.title }}</h3><img class="img" src="#" alt="фото">#}
-                <p>{{ item.title }}</p>
-                <p>Цена: {{ item.price }}</p>
-                <p>Кол-во: {{ item.counter }}</p>
+               <h3>{{ item.title }}</h3>{#<img class="img" src="#" alt="фото">#}
             </a>
+                <p>Цена: {{ item.price }}</p>
+            <div>
+                <div class="count__div">Кол-во: </div>
+                <span id="dec_{{ item.id_catalog }}" data-id="{{ item.id_catalog }}" class="btn decrement">-</span>
+                <span id="value__counter_{{ item.id_catalog }}">{{ item.counter }}</span>
+                <span id="inc_{{ item.id_catalog }}" data-id="{{ item.id_catalog }}" class="btn increment">+</span>
+
+            </div>
+            <p>Всего: {{ item.price * item.counter }}</p>
+
         </div>
+    {% endfor %}
+    {% for price in content_data[1] %}
+    <p class="totalPrice" >Итоговая стоимость: {{ price.total }} руб</p>
     {% endfor %}
 </div>
 

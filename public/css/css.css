@@ -38,9 +38,15 @@ a {
 .btn {
     margin: 25px;
     font-size: 25px;
+    cursor: pointer;
 }
 
-.totalPrice {
+.totalDiv {
     float: right;
     margin-right: 25px;
+}
+
+.cartInput {
+    margin-top: 50px;
+    padding: 0 500px;
 }

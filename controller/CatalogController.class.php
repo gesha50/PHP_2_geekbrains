@@ -8,7 +8,7 @@ class CatalogController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->title .= ' | Тестовая страница';
+        $this->title = 'Каталог';
     }
 
     public function index(){

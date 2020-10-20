@@ -1,10 +1,10 @@
 <?php
 
-class Catalog {
+class Catalog extends Controller {
 
     public function __construct()
     {
-
+        parent::__construct();
     }
 
     function getGoods(){

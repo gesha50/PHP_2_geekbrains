@@ -48,7 +48,7 @@ class App
             $data = [
                 'content_data' => $controller->$methodName($_GET['id']),
                 'title' => $controller->title,
-                'categories' => Category::getCategories(1),
+                //'categories' => Category::getCategories(1),
                 'cartQuantity' => Cart::quantity()
             ];
 

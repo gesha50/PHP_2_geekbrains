@@ -13,6 +13,10 @@ class CartController extends Controller
     }
 
     public function index ($id) {
+        $isAjax = (boolean)$_GET['isAjax'];
+        if ($isAjax) {
+            $_GET['asAjax'] = true;
+        }
         $obj = new Cart();
         return $obj->getGoods();
     }

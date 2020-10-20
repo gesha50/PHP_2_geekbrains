@@ -68,7 +68,7 @@ class db
     {
         $result = $this->Query($query, $params);
         if ($result) {
-            return $result->fetch();
+            return $result->rowCount();
         }
     }
 
@@ -83,9 +83,9 @@ class db
     public function Delete($query, $params = array())
     {
         $result = $this->Query($query, $params);
-        if ($result) {
-            return $result->rowCount();
-        }
+//        if ($result) {
+//            return $result->rowCount();
+//        }
     }
 }
 ?>

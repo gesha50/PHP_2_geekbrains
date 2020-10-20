@@ -13,8 +13,8 @@ class Cart
     }
 
     public function getGoods () {
-        $res[0] = db::getInstance()->Select('SELECT id_catalog, title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
-        $res[1] = db::getInstance()->Select('SELECT sum(price*counter) as total FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id');
+        $res[0] = db::getInstance()->Select("SELECT id_catalog, title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id WHERE id_user = :id_user ", ['id_user' => $this->id_user]);
+        $res[1] = db::getInstance()->Select('SELECT sum(price*counter) as total FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id WHERE id_user = :id_user', ['id_user' => $this->id_user]);
         return $res;
     }
 
@@ -30,9 +30,8 @@ class Cart
 
     public function quantity (){
         $res = db::getInstance()->Select(
-            'SELECT count(*) as counter FROM basket');
+            'SELECT count(*) as counter FROM basket WHERE id_user = :id_user', ['id_user' => $_SESSION['id_user']]);
         return $res[0]['counter'];
-        //echo json_encode($res);
     }
 
     public function isItemInCart ($id) {

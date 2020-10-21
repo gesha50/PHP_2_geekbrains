@@ -10,8 +10,18 @@
     <script type="text/javascript" src="js/category.js"></script>
     <body>
     <nav>
+        {% if (isAdmin) %}
+        <span><a href="index.php?path=admin">Админка</a></span>
+        {% endif %}
         <span><a href="index.php">Главная</a></span>
         <span><a href="index.php?path=catalog">Каталог</a></span>
+        {% if (isUserLogin) %}
+        <span><a href="index.php?path=user/cabinet">Личный Кабинет</a></span>
+        <span><a href="index.php?path=user/destroy">Выход</a></span>
+        {%  else  %}
+        <span><a href="index.php?path=user/reg">Регистрация</a></span>
+        <span><a href="index.php?path=user/login">Войти</a></span>
+        {% endif %}
         <span class="cart"><a href="index.php?path=cart">Корзина </a>
 
 <!--            Если корзина пустая, то 0 не показываем-->

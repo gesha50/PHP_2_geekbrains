@@ -49,7 +49,9 @@ class App
                 'content_data' => $controller->$methodName($_GET['id']),
                 'title' => $controller->title,
                 //'categories' => Category::getCategories(1),
-                'cartQuantity' => Cart::quantity()
+                'cartQuantity' => Cart::quantity(),
+                'isUserLogin' => User::isUserLogin(),
+                'isAdmin' => Admin::isAdmin()
             ];
 
             $view = $controller->view . '/' . $methodName . '.html';

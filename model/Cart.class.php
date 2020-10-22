@@ -31,6 +31,9 @@ class Cart
     public function quantity (){
         $res = db::getInstance()->Select(
             'SELECT count(*) as counter FROM basket WHERE id_user = :id_user', ['id_user' => $_SESSION['id_user']]);
+        if ($res[0]['counter'] == 0){
+            return "";
+        }
         return $res[0]['counter'];
     }
 

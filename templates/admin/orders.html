@@ -1,0 +1,37 @@
+{% if (isAdmin) %}
+{% include 'headerAdmin.html' %}
+
+<div class="mainAdmin">
+
+    <table border='1' class='tableOrder'>
+        <tr>
+            <th>№ Заказа</th><th><p>О товаре</p></th><th>Способ доставки</th><th>Имя покупателя</th><th>Номер тел.</th>
+            <th>Кол-во персон</th><th>Способ оплаты</th><th>К какому времени</th><th>Купюра оплаты</th>
+            <th>Адрес</th><th>Комментарий</th><th>Время заказа</th><th>Статус</th>
+        </tr>
+        {% for item in content_data %}
+        <tr>
+            <td>{{ item.id }}</td><td><a href='#popup' onclick="aboutOrder({{ item.id }})">подробнее</a></td><td>{{ item.delivery }}</td>
+            <td>{{ item.name }}</td><td>{{ item.telehone }}</td>
+            <td>{{ item.person }}</td><td>{{ item.money }}</td><td>{{ item.date_time }}</td><td>{{ item.change }}</td>
+            <td>{{ item.adress }}</td><td>{{ item.comment }}</td><td>{{ item.time_order }}</td><td>{{ item.status }}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <div id="popup" class="popup">
+        <a href="#" class="popup__area"></a>
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#" class="popup__close">X</a>
+                <div class="popup__text">0</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% else %}
+<h2>Вы не администратор!</h2>
+{% endif %}

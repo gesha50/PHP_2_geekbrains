@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="css/css.css">
     </head>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/ajaxTest.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/category.js"></script>
     <body>
@@ -23,14 +22,8 @@
         <span><a href="index.php?path=user/login">Войти</a></span>
         {% endif %}
         <span class="cart"><a href="index.php?path=cart">Корзина </a>
-
 <!--            Если корзина пустая, то 0 не показываем-->
-            {% if (cartQuantity) %}
             <span id="cart__counter">{{ cartQuantity }}</span>
-        {%  else  %}
-            <span id="cart__counter"></span>
-            {% endif %}
-
         </span>
     </nav>
 <!--        <ul>-->

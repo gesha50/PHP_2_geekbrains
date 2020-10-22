@@ -1,0 +1,23 @@
+{% if (isAdmin) %}
+{% include 'headerAdmin.html' %}
+
+<h2>Редактирование товаров</h2>
+
+<div class="catalog">
+    {% for catalog in content_data %}
+    <div class="item">
+        <a href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
+            <h3>{{ catalog.title }}</h3><img class="img" src="#" alt="фото">
+            <p>{{ catalog.price }}</p>
+            <p>{{ catalog.desc }}</p>
+        </a>
+        <a href="index.php?path=admin/edit/{{ catalog.catalog_id }}"><button data-id="{{ catalog.catalog_id }}" class="btnEdit">Редактировать</button></a>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'footer.html' %}
+
+{% else %}
+<h2>Вы не администратор!</h2>
+{% endif %}

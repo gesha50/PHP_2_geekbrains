@@ -111,6 +111,42 @@ function increment(id){
     })
 }
 
+function aboutOrder(id) {
+    $.ajax(
+        {
+            type: "GET",
+            url: "index.php?path=admin/popup/"+id,
+            //data: id
+            dataType: "json",
+            success: function (answer) {
+                console.log(answer);
+                console.log(answer['content_data'][0].title);
+
+                let modal = document.querySelector('.popup__text');
+                let totalPrice = 0;
+                let itemAllPrice = 0;
+                let item = '<table><tr><th>Имя товара:</th><th>стоимость:</th><th>кол-во:</th><th>всего:</th></tr>';
+                for (let key in answer['content_data']) {
+                    totalPrice = answer['content_data'][key].price * answer['content_data'][key].counter;
+                    itemAllPrice += answer['content_data'][key].price * answer['content_data'][key].counter;
+                    item += '<tr><td>' + answer['content_data'][key].title + '</td>';
+                    item += '<td>' + answer['content_data'][key].price + '</td>';
+                    item += '<td>' + answer['content_data'][key].counter + '</td>';
+                    item += '<td>' + totalPrice + '</td></tr>';
+
+                    if(key == 0){
+                        modal.innerHTML = '';
+                    }
+                }
+                item += '</table>';
+                item += '<p>Общая стоимость заказа: ' + itemAllPrice + '</p>';
+
+                modal.innerHTML += item;
+            }
+        }
+    )
+}
+
 
 
 

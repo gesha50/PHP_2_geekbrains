@@ -30,7 +30,7 @@ class App
                 $_GET['action'] = $url[1];
             }
             if (isset($url[2])) {
-                $_GET['id'] = $url[2];
+                (int)$_GET['id'] = $url[2];
             }
         }
     }

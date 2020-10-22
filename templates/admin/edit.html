@@ -4,15 +4,15 @@
 <h2>Редактирование товара</h2>
 {% for item in content_data %}
 <div class="content">
-    <form method="post" action="index.php?path=admin/newItemOrUpdate" enctype="multipart/form-data">
+    <form method="post" action="index.php?path=admin/updateItem" enctype="multipart/form-data">
         <p>наименование: <br><input type="text" name="name" maxlength="100" value="{{ item.title }}"></p>
         <p>Краткое описание: <br><textarea name="desc" rows="5">{{ item.desc }}</textarea></p>
 <!--        <p>Подробное описание: <br><textarea name="descriptionB" rows="10"><?=$good['descriptionB']?></textarea></p>-->
         <p>цена: <br><input type="number" name="price" maxlength="20" value="{{ item.price }}" ></p>
-<!--        <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>-->
-<!--        <p><img src="../public/" width="200"></p>-->
-<!--        <p><input type="file" name="img" accept="image/jpeg,image/png,image/gif"></p>-->
-<!--        <input type="hidden" name="src" value="">-->
+        <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>
+        <p><img src="{{ item.img }}" width="200"></p>
+        <p><input type="file" value="{{ item.img }}" name="img" accept="image/jpeg,image/png,image/gif"></p>
+        <input type="hidden" name="src" value="">
         <input type="hidden" name="edit" value="{{ item.catalog_id }}">
         <p><input type="submit" name="submit" value="Внести изменения"></p>
     </form>

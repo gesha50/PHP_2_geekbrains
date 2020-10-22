@@ -7,11 +7,13 @@
     {% for catalog in content_data %}
     <div class="item">
         <a href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
-            <h3>{{ catalog.title }}</h3><img class="img" src="#" alt="фото">
+            <h3>{{ catalog.title }}</h3>
+            <img  src="{{ catalog.img }}" alt="фото" width="200px">
             <p>{{ catalog.price }}</p>
-            <p>{{ catalog.desc }}</p>
+<!--            <p>{{ catalog.desc }}</p>-->
         </a>
-        <a href="index.php?path=admin/edit/{{ catalog.catalog_id }}"><button data-id="{{ catalog.catalog_id }}" class="btnEdit">Редактировать</button></a>
+        <a href="index.php?path=admin/edit/{{ catalog.catalog_id }}"><button  class="btnEdit">Редактировать</button></a>
+        <a href="index.php?path=admin/delete/{{ catalog.catalog_id }}"><button  class="btnEdit">Удалить</button></a>
     </div>
     {% endfor %}
 </div>

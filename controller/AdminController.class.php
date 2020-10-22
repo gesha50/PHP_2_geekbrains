@@ -30,17 +30,72 @@ class AdminController extends Controller
     public function newItemOrUpdate () {
         if($_POST['submit']){
             $name = trim(strip_tags($_POST['name']));
-            $desc= trim(strip_tags($_POST['desc']));
+            $desc = trim(strip_tags($_POST['desc']));
             $price = (int)trim(strip_tags($_POST['price']));
-            $obj = new Admin();
-            if(isset($_POST['edit'])){
-                $id = (int)trim(strip_tags($_POST['edit']));
-                $obj->itemUpdate( $id, $name, $desc, $price);
-                header("Location: index.php?path=admin/goods");
-            }else{
-                $obj->newItem( $name, $desc, $price);
-                header("Location: index.php?path=admin/goods");
+
+            $filePath  = $_FILES['img']['tmp_name'];
+            $obj = new Image();
+            $fileName  = $obj->translate($_FILES['img']['name']);
+            $type = $_FILES['img']['type'];
+            $size = $_FILES['img']['size'];
+            define("DIR_BIG","img/big/");
+            define("DIR_SMALL","img/small/");
+
+            $obj2 = new Admin();
+
+            if($type == 'image/jpeg' || $type == 'image/png' || $type == 'image/gif'){
+                if($size>0 and $size<100000000){
+                    if(move_uploaded_file($filePath,"img/big/".$fileName)){
+                        $obj->image_resize("img/big/".$fileName, "img/small/".$fileName, 250);
+                        if(isset($_POST['edit'])){
+                            $id = (int)trim(strip_tags($_POST['edit']));
+                            $obj2->itemUpdate( $id, $name, $desc, $price, DIR_BIG.$fileName);
+                            header("Location: index.php?path=admin/goods");
+                        }
+//                        else{
+//                            $obj2->newItem( $name, $desc, $price, DIR_BIG.$fileName);
+//                            header("Location: index.php?path=admin/goods");
+//                        }
+
+                        //$message = "<h3>Файл успешно загружен на сервер</h3>";
+                    }
+                }
             }
+            //return $message;
+        }
+    }
+
+    public function updateItem () {
+        if($_POST['submit']){
+            $name = trim(strip_tags($_POST['name']));
+            $desc = trim(strip_tags($_POST['desc']));
+            $price = (int)trim(strip_tags($_POST['price']));
+
+            $filePath  = $_FILES['img']['tmp_name'];
+            $obj = new Image();
+            $fileName  = $obj->translate($_FILES['img']['name']);
+            $type = $_FILES['img']['type'];
+            $size = $_FILES['img']['size'];
+            define("DIR_BIG","img/big/");
+            define("DIR_SMALL","img/small/");
+
+            $obj2 = new Admin();
+
+//            if($type == 'image/jpeg' || $type == 'image/png' || $type == 'image/gif'){
+//                if($size>0 and $size<100000000){
+                   // if(move_uploaded_file($filePath,"img/big/".$fileName)){
+//                        //$obj->image_resize("img/big/".$fileName, "img/small/".$fileName, 250);
+
+                        $id = (int)trim(strip_tags($_POST['edit']));
+                        $obj2->itemUpdate( $id, $name, $desc, $price, DIR_BIG.$fileName);
+                        header("Location: index.php?path=admin/goods");
+
+
+                        //$message = "<h3>Файл успешно загружен на сервер</h3>";
+//                    }
+                    //}
+//            }
+//            //return $message;
         }
     }
 
@@ -54,6 +109,12 @@ class AdminController extends Controller
         $_GET['asAjax'] = true;
         $obj = new Admin();
         return $obj->getPopupOrder($id);
+    }
+
+    public function delete ($id) {
+        $obj = new Admin();
+        $obj->delete($id);
+        header('location: index.php?path=admin/goods');
     }
 
 }

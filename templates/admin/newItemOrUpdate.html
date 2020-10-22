@@ -3,6 +3,10 @@
 
 <h1>Добавить новый товар!</h1>
 
+{% if (content_data) %}
+<p>{{ content_data }}</p>
+{% endif %}
+
 <div class="mainAdmin">
     <div class="content">
         <form method="post" action="index.php?path=admin/newItemOrUpdate" enctype="multipart/form-data">
@@ -10,8 +14,8 @@
             <p>Введите наименование: <br><input type="text" name="name" maxlength="100" required></p>
             <p>Введите описание: <br><textarea name="desc" rows="5" required></textarea></p>
             <p>Введите цену: <br><input type="number" name="price" maxlength="20" required></p>
-<!--            <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>-->
-<!--            <p><input type="file" name="img" accept="image/jpeg,image/png,image/gif" required></p>-->
+            <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>
+            <p><input type="file" name="img" accept="image/jpeg,image/png,image/gif" required></p>
             <p><input type="submit" name="submit" value="Добавить"></p>
         </form>
     </div>

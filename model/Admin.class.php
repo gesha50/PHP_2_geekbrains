@@ -20,20 +20,23 @@ class Admin
         return $res;
     }
 
-    public function itemUpdate ( $id, $name, $desc, $price) {
-        $res = db::getInstance()->Update('update catalog set title= :title, price= :price, `desc` = :desc where catalog_id= :catalog_id',[
+    public function itemUpdate ( $id, $name, $desc, $price, $img) {
+        $res = db::getInstance()->Update('update catalog set title= :title, price= :price, `desc` = :desc, img= :img where catalog_id= :catalog_id',[
             'title' => $name,
             'price' => $price,
             'desc' => $desc,
+            'img' => $img,
             'catalog_id' =>$id
         ]);
     }
 
-    public function newItem ( $name, $desc, $price) {
-        $res = db::getInstance()->Insert('INSERT INTO catalog (title, price, `desc`) value (:title, :price, :desc)',[
+    public function newItem ( $name, $desc, $price, $img) {
+        $res = db::getInstance()->Insert('INSERT INTO catalog (title, price, `desc`, img) 
+                                                        value (:title, :price, :desc, :img)',[
             'title' => $name,
             'price' => $price,
-            'desc' => $desc
+            'desc' => $desc,
+            'img' => $img
         ]);
     }
 
@@ -49,6 +52,9 @@ WHERE order_id = :order_id', ['order_id'=>$id]);
         return $res;
     }
 
+    public function delete ($id){
+        $res = db::getInstance()->Delete('delete from catalog where catalog_id = :catalog_id', ['catalog_id' => $id]);
+    }
 
 
 }

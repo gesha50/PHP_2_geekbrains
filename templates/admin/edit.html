@@ -12,7 +12,7 @@
         <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>
         <p><img src="{{ item.img }}" width="200"></p>
         <p><input type="file" value="{{ item.img }}" name="img" accept="image/jpeg,image/png,image/gif"></p>
-        <input type="hidden" name="src" value="">
+        <input type="hidden" name="image" value="{{ item.img }}">
         <input type="hidden" name="edit" value="{{ item.catalog_id }}">
         <p><input type="submit" name="submit" value="Внести изменения"></p>
     </form>

@@ -66,18 +66,23 @@ class AdminController extends Controller
     }
 
     public function updateItem () {
+        define("DIR_BIG","img/big/");
+        define("DIR_SMALL","img/small/");
         if($_POST['submit']){
             $name = trim(strip_tags($_POST['name']));
             $desc = trim(strip_tags($_POST['desc']));
             $price = (int)trim(strip_tags($_POST['price']));
 
-            $filePath  = $_FILES['img']['tmp_name'];
-            $obj = new Image();
-            $fileName  = $obj->translate($_FILES['img']['name']);
-            $type = $_FILES['img']['type'];
-            $size = $_FILES['img']['size'];
-            define("DIR_BIG","img/big/");
-            define("DIR_SMALL","img/small/");
+            if ($_FILES['img']['name']) {
+                $fileName  = DIR_BIG;
+                $filePath  = $_FILES['img']['tmp_name'];
+                $obj = new Image();
+                $fileName .= $obj->translate($_FILES['img']['name']);
+                $type = $_FILES['img']['type'];
+                $size = $_FILES['img']['size'];
+            } else {
+                $fileName = trim(strip_tags($_POST['image']));
+            }
 
             $obj2 = new Admin();
 
@@ -87,7 +92,7 @@ class AdminController extends Controller
 //                        //$obj->image_resize("img/big/".$fileName, "img/small/".$fileName, 250);
 
                         $id = (int)trim(strip_tags($_POST['edit']));
-                        $obj2->itemUpdate( $id, $name, $desc, $price, DIR_BIG.$fileName);
+                        $obj2->itemUpdate( $id, $name, $desc, $price, $fileName);
                         header("Location: index.php?path=admin/goods");
 
 

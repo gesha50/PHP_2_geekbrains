@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.btnBuy').click (function(){
         let id_good = $(this).attr("data-id");
-
+        console.log(id_good)
         $.ajax({
             url: "index.php?path=Catalog/add/",
             type: "GET",
@@ -28,6 +28,7 @@ function ajaxQuantity() {
             alert("Что-то пошло не так...");
         },
         success: function(answer){
+            console.log(answer)
             $('#cart__counter').text(answer['cartQuantity']);
         }
     })

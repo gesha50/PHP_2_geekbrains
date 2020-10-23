@@ -110,7 +110,7 @@ class AdminController extends Controller
     }
 
     public function popup ($id) {
-        $id = (int)$id;
+        //$id = (int)$id;
         $_GET['asAjax'] = true;
         $obj = new Admin();
         return $obj->getPopupOrder($id);

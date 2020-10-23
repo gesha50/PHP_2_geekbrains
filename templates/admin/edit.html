@@ -1,5 +1,5 @@
 {% if (isAdmin) %}
-{% include 'headerAdmin.html' %}
+{% include 'AdminHeader.html' %}
 
 <h2>Редактирование товара</h2>
 {% for item in content_data %}
@@ -19,7 +19,7 @@
 </div>
 {% endfor %}
 
-{% include 'footer.html' %}
+{% include 'AdminFooter.html' %}
 
 {% else %}
 <h2>Вы не администратор!</h2>

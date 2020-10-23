@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="../lib/fontAwesome/all.min.css">
+<!--        <link rel="stylesheet" href="css/css.css">-->
+        <link rel="stylesheet" href="style/scss.css">
+    </head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+<body>
+<div class="conteiner">
+<nav class="nav">
+    <div class="nav__div"><a class="nav__link" href="index.php?path=admin"><div class="nav__user"><div class="photo"></div><span class="nav__span">{{ content_data.name }}</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php?path=admin"><div class="nav__outer"><i class="fas fa-home"></i><span class="nav__span">Админка</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php?path=admin/goods"><div class="nav__outer"><i class="fas fa-cookie-bite"></i><span class="nav__span">Товары</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php?path=admin/newItemOrUpdate"><div class="nav__outer"><i class="fas fa-plus-circle"></i><span class="nav__span">Добавить товар</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php?path=admin/orders"><div class="nav__outer"><i class="fas fa-tags"></i><span class="nav__span">Заказы</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php"><div class="nav__outer"><i class="fas fa-store"></i><span class="nav__span" class="cart">Сайт</span></div></a></div>
+    <div class="nav__div"><a class="nav__link" href="index.php?path=user/destroy"><div class="nav__outer"><i class="fas fa-sign-out-alt"></i><span class="nav__span">Выйти</span></div></a></div>
+</nav>
+<main class="content">
+
+

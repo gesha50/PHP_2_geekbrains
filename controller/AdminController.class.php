@@ -9,16 +9,24 @@ class AdminController extends Controller
         parent::__construct();
     }
 
-    public function index()
+    public function index($id)
     {
         $res = ['name' => $_SESSION['login'], 'text' => 'Работает!'];
+
+        if ($id){
+            $res['menuId'] .=  $id;
+        }
      return $res;
     }
 
-    public function goods()
+    public function goods($id)
     {
         $obj = new Catalog();
-        return $obj->getGoods();
+        $res = $obj->getGoods();
+        if ($id){
+            $res['menuId'] .=  $id;
+        }
+        return $res;
     }
 
     public function edit($id)
@@ -27,7 +35,11 @@ class AdminController extends Controller
         return $obj->getItem($id);
     }
 
-    public function newItemOrUpdate () {
+    public function newItemOrUpdate ($id) {
+        if ($id){
+            $res['menuId'] .=  $id;
+        }
+
         if($_POST['submit']){
             $name = trim(strip_tags($_POST['name']));
             $desc = trim(strip_tags($_POST['desc']));
@@ -63,6 +75,7 @@ class AdminController extends Controller
             }
             //return $message;
         }
+        return $res;
     }
 
     public function updateItem () {
@@ -104,9 +117,13 @@ class AdminController extends Controller
         }
     }
 
-    public function orders () {
+    public function orders ($id) {
         $obj = new Admin();
-        return $obj->getOrders();
+        $res['orders'] = $obj->getOrders();
+        if ($id){
+            $res['menuId'] .=  $id;
+        }
+        return $res;
     }
 
     public function popup ($id) {

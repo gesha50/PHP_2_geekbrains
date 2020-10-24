@@ -9,7 +9,7 @@
             <th>Кол-во персон</th><th>Способ оплаты</th><th>К какому времени</th><th>Купюра оплаты</th>
             <th>Адрес</th><th>Комментарий</th><th>Время заказа</th><th>Статус</th>
         </tr>
-        {% for item in content_data %}
+        {% for item in content_data.orders %}
         <tr>
             <td>{{ item.id }}</td><td><a href='#popup' onclick="aboutOrder({{ item.id }})">подробнее</a></td><td>{{ item.delivery }}</td>
             <td>{{ item.name }}</td><td>{{ item.telehone }}</td>

@@ -22,7 +22,7 @@ class AdminController extends Controller
     public function goods($id)
     {
         $obj = new Catalog();
-        $res = $obj->getGoods();
+        $res['goods'] = $obj->getGoods();
         if ($id){
             $res['menuId'] .=  $id;
         }
@@ -64,10 +64,10 @@ class AdminController extends Controller
                             $obj2->itemUpdate( $id, $name, $desc, $price, DIR_BIG.$fileName);
                             header("Location: index.php?path=admin/goods");
                         }
-//                        else{
-//                            $obj2->newItem( $name, $desc, $price, DIR_BIG.$fileName);
-//                            header("Location: index.php?path=admin/goods");
-//                        }
+                        else{
+                            $obj2->newItem( $name, $desc, $price, DIR_BIG.$fileName);
+                            header("Location: index.php?path=admin/goods");
+                        }
 
                         //$message = "<h3>Файл успешно загружен на сервер</h3>";
                     }

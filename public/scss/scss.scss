@@ -1,5 +1,6 @@
 @import "var";
 @import "popup";
+@import "fonts";
 
 * {
   margin: 0;
@@ -18,7 +19,8 @@ body {
   height: 100vh;
   background-color: $navColor;
   position: fixed;
-  font-size: 14px;
+  font-family: "Segoe UI";
+  font-size: 12px;
   .nav__div,
   .nav__link {
     height: 110px;

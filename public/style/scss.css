@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .popup {
   position: fixed;
   width: 100%;
@@ -63,6 +64,12 @@
   font-size: 30px;
 }
 
+@font-face {
+  font-family: "Segoe UI";
+  /* Имя шрифта */
+  src: url(../fonts/Segoe.ttf);
+  /* Путь к файлу со шрифтом */
+}
 * {
   margin: 0;
   padding: 0;
@@ -82,7 +89,8 @@ body {
   height: 100vh;
   background-color: #0c1219;
   position: fixed;
-  font-size: 14px;
+  font-family: "Segoe UI";
+  font-size: 12px;
 }
 .nav .nav__div,
 .nav .nav__link {

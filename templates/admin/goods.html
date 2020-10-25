@@ -4,7 +4,7 @@
 <h2>Редактирование товаров</h2>
 
 <div class="catalog">
-    {% for catalog in content_data %}
+    {% for catalog in content_data.goods %}
     <div class="item">
         <a href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
             <h3>{{ catalog.title }}</h3>

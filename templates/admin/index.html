@@ -1,6 +1,25 @@
 {% if (isAdmin) %}
 {% include 'AdminHeader.html' %}
 
+<section class="statistic">
+    <div class="statistic__block">
+        <p class="statistic__text">Всего посещений:</p>
+        <p class="statistic__numbers">2000</p>
+    </div>
+    <div class="statistic__block">
+        <p class="statistic__text">Скачиваний:</p>
+        <p class="statistic__numbers">2000</p>
+    </div>
+    <div class="statistic__block">
+        <p class="statistic__text">Выполненых заказов:</p>
+        <p class="statistic__numbers">2000</p>
+    </div>
+    <div class="statistic__block">
+        <p class="statistic__text">Действующих заказов:</p>
+        <p class="statistic__numbers">2000</p>
+    </div>
+</section>
+
 <h1>Добро пожаловать в панель администратора {{ content_data.name }}!</h1>
 
 <p>{{ content_data.text }}</p>

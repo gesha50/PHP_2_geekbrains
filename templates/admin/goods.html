@@ -1,22 +1,24 @@
 {% if (isAdmin) %}
 {% include 'AdminHeader.html' %}
 
-<h2>Редактирование товаров</h2>
+<section class="catalog">
+<h2 class="heading">Все товары</h2>
 
-<div class="catalog">
+<div class="goodsContainer">
     {% for catalog in content_data.goods %}
     <div class="item">
-        <a href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
-            <h3>{{ catalog.title }}</h3>
-            <img  src="{{ catalog.img }}" alt="фото" width="200px">
-            <p>{{ catalog.price }}</p>
+        <a class="item__link" href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">
+            <h3 class="item__heading">{{ catalog.title }}</h3>
+            <img class="item__img"  src="{{ catalog.img }}" alt="фото" width="200px">
+            <p class="item__price">{{ catalog.price }}</p>
 <!--            <p>{{ catalog.desc }}</p>-->
         </a>
-        <a href="index.php?path=admin/edit/{{ catalog.catalog_id }}"><button  class="btnEdit">Редактировать</button></a>
-        <a href="index.php?path=admin/delete/{{ catalog.catalog_id }}"><button  class="btnEdit">Удалить</button></a>
+        <a href="index.php?path=admin/edit/{{ catalog.catalog_id }}"><button  class="btn item__btn">Редактировать</button></a>
+        <a href="index.php?path=admin/delete/{{ catalog.catalog_id }}"><button  class="btn item__btn">Удалить</button></a>
     </div>
     {% endfor %}
 </div>
+</section>
 
 {% include 'AdminFooter.html' %}
 

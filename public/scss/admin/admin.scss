@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@import "var";
+@import "fonts";
+@import "navBar";
+@import "header";
+@import "popup";
+@import "search";
+@import "reload";
+@import "statistic";
+@import "orders";
+@import "goods";
+@import "edit";
+@import "add";
+
+body {
+  background: $bodyColor;
+}
+.conteiner {
+  background: $fonColor1;
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+  margin-left: 130px;
+}
+
+.main {
+  padding: 0 35px;
+}
+
+.heading {
+  text-align: center;
+  margin: 35px 0;
+}
+
+.btn {
+  padding: 3px;
+  //width: 100px;
+  background: $navColor;
+  color: $menuLinkColor;
+  border-radius: 5px;
+  &:hover {
+    background: $menuLinkColor;
+    color: $navColor;
+  }
+}
+
+
+
+
+
+
+
+

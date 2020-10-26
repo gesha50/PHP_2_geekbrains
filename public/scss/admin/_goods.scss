@@ -1,0 +1,31 @@
+
+.goodsContainer {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  justify-items: center;
+}
+a{
+  text-decoration: none;
+}
+
+.item {
+  background: aliceblue;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5%;
+  &:hover{
+    background: #ffffff;
+  }
+  .item__link {
+    .item__img {
+      margin: 7px 0;
+      height: 215px;
+      object-fit: contain;
+    }
+  }
+  .item__btn {
+    //display: block;
+    margin: 7px auto;
+    width: 100px;
+  }
+}

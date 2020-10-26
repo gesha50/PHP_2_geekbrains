@@ -1,17 +1,18 @@
 {% if (isAdmin) %}
 {% include 'AdminHeader.html' %}
 
-<div class="mainAdmin">
+<section class="orders">
 
-    <table border='1' class='tableOrder'>
+    <h2 class="heading">Таблица заказов</h2>
+    <table class='tableOrder'>
         <tr>
-            <th>№ Заказа</th><th><p>О товаре</p></th><th>Способ доставки</th><th>Имя покупателя</th><th>Номер тел.</th>
+            <th>№ Заказа</th><th><p>О товаре</p></th><th>Способ доставки</th><th>Имя</th><th>Телефон</th>
             <th>Кол-во персон</th><th>Способ оплаты</th><th>К какому времени</th><th>Купюра оплаты</th>
             <th>Адрес</th><th>Комментарий</th><th>Время заказа</th><th>Статус</th>
         </tr>
         {% for item in content_data.orders %}
         <tr>
-            <td>{{ item.id }}</td><td><a href='#popup' onclick="aboutOrder({{ item.id }})">подробнее</a></td><td>{{ item.delivery }}</td>
+            <td>{{ item.id }}</td><td><a href='#popup' onclick="aboutOrder({{ item.id }})">Заказ</a></td><td>{{ item.delivery }}</td>
             <td>{{ item.name }}</td><td>{{ item.telehone }}</td>
             <td>{{ item.person }}</td><td>{{ item.money }}</td><td>{{ item.date_time }}</td><td>{{ item.change }}</td>
             <td>{{ item.adress }}</td><td>{{ item.comment }}</td><td>{{ item.time_order }}</td><td>{{ item.status }}</td>
@@ -28,7 +29,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {% include 'AdminFooter.html' %}
 

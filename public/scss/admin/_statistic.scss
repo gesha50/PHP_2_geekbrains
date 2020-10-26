@@ -1,0 +1,17 @@
+
+.statistic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 35px 0;
+  justify-items: center;
+  .statistic__block {
+    padding: 5px;
+    background: aliceblue;
+    width: 175px;
+    text-align: center;
+    .statistic__numbers {
+      font-size: 35px;
+      color: $menuLinkColor;
+    }
+  }
+}

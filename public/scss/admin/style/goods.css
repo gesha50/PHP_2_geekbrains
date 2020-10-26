@@ -1,0 +1,7 @@
+.goodsContainer {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  justify-items: center;
+}
+
+/*# sourceMappingURL=goods.css.map */

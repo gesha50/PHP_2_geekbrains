@@ -1,0 +1,17 @@
+
+.orders {
+  margin: 35px 0;
+}
+
+.tableOrder, tr, td, th {
+  border: 1px solid $bodyColor;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tableOrder {
+  width: 100%;
+}

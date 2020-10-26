@@ -1,0 +1,21 @@
+
+.reload {
+  align-self: center;
+  .reload__link {
+    .reload__btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: $navColor;
+      &:hover{
+        background: $menuLinkColor;
+      }
+      &:hover .reload__icon {
+        color: $navColor;
+      }
+      .reload__icon {
+        color: $menuLinkColor;
+      }
+    }
+  }
+}

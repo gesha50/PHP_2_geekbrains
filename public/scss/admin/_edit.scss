@@ -1,0 +1,40 @@
+
+.editCatalog {
+  width: 620px;
+  margin: 0 auto;
+}
+
+
+.formEdit{
+  text-align: center;
+  background: aliceblue;
+  border-radius: 10px;
+  padding: 10px 0;
+  .formEdit__container {
+    .formEdit__block {
+      .formEdit__text {
+        margin: 10px;
+        .formEdit__input {
+          margin: 5px;
+          width: 75%;
+          border: none;
+          background: $bodyColor;
+          color: #ffffff;
+          border-radius: 10px;
+          padding: 5px;
+        }
+      }
+      .formEdit__img {
+        height: 160px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .formEdit__endBtn {
+    margin-top: 10px;
+  }
+}
+ .formEdit_containerForEdit {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+ }

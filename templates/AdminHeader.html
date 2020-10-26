@@ -4,7 +4,7 @@
         <title>{{ title }}</title>
         <link rel="stylesheet" href="../lib/fontAwesome/all.min.css">
 <!--        <link rel="stylesheet" href="css/css.css">-->
-        <link rel="stylesheet" href="style/scss.css">
+        <link rel="stylesheet" href="scss/admin/style/admin.css">
     </head>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -20,16 +20,23 @@
     <div class="nav__div"><a class="nav__link" href="index.php"><div class="nav__outer"><i class="fas fa-store"></i><span class="nav__span" class="cart">Сайт</span></div></a></div>
     <div class="nav__div"><a class="nav__link" href="index.php?path=user/destroy"><div class="nav__outer logout"><i class="fas fa-sign-out-alt"></i><span class="nav__span">Выйти</span></div></a></div>
 </nav>
-<main class="content">
+<div class="content">
 <header class="header">
     <div class="header__block">
     <h2 class="header__h2">Админка</h2>
     <p class="header__p">панель инструментов</p>
     </div>
     <div class="header__block">
-        <div class="header__search"><input type="text" placeholder="search"><i class="fas fa-search"></i></div>
-        <a class="header__reload"><i class="fas fa-redo"></i></a>
+        <div class="search">
+            <input class="search__input"  type="text" placeholder="search">
+            <i class="search__icon fas fa-search"></i>
+        </div>
+        <div class="reload">
+            <a href="index.php?path=admin" class="reload__link">
+                <button class="reload__btn"><i class="reload__icon fas fa-redo"></i></button>
+                </a>
+        </div>
     </div>
 
 </header>
-
+<main class="main">

@@ -1,24 +1,28 @@
 {% if (isAdmin) %}
 {% include 'AdminHeader.html' %}
-<h1>Добавить новый товар!</h1>
 
-{% if (content_data) %}
-<p>{{ content_data }}</p>
-{% endif %}
+<section class="addItem">
 
-<div class="mainAdmin">
+<h2 class="heading" >Добавить новый товар!</h2>
 
-        <form method="post" action="index.php?path=admin/newItemOrUpdate" enctype="multipart/form-data">
-            <p><strong>Добавить товар:</strong></p>
-            <p>Введите наименование: <br><input type="text" name="name" maxlength="100" required></p>
-            <p>Введите описание: <br><textarea name="desc" rows="5" required></textarea></p>
-            <p>Введите цену: <br><input type="number" name="price" maxlength="20" required></p>
-            <p><strong>Загрузите картинку в формате JPEG, PNG или GIF</strong></p>
-            <p><input type="file" name="img" accept="image/jpeg,image/png,image/gif" required></p>
-            <p><input type="submit" name="submit" value="Добавить"></p>
+<div class="addCatalog">
+
+        <form class="formEdit" method="post" action="index.php?path=admin/newItemOrUpdate" enctype="multipart/form-data">
+            <div class="formEdit__container formEdit_containerForAdd">
+                <div class="formEdit__block">
+                    <h4 class="formEdit__text">Введите наименование: <br><input class="formEdit__input" type="text" name="name" maxlength="100" required></h4>
+                    <h4 class="formEdit__text">Введите описание: <br><textarea class="formEdit__input" name="desc" rows="5" required></textarea></h4>
+                    <h4 class="formEdit__text">Введите цену: <br><input class="formEdit__input" type="number" name="price" maxlength="20" required></h4>
+                    <h4 class="formEdit__text">Загрузите картинку в формате JPEG, PNG или GIF</h4>
+                    <p><input class="btn" type="file" name="img" accept="image/jpeg,image/png,image/gif" required></p>
+                    <p><input class="btn formEdit_addBtn" type="submit" name="submit" value="Добавить"></p>
+                </div>
+            </div>
         </form>
     
 </div>
+
+</section>
 
 {% include 'AdminFooter.html' %}
 

@@ -218,6 +218,7 @@ table {
   grid-template-columns: repeat(4, 1fr);
   display: grid;
   justify-items: center;
+  grid-gap: 20px;
 }
 
 a {
@@ -301,6 +302,7 @@ body {
   width: 100%;
   min-height: 100vh;
   margin-left: 130px;
+  padding-bottom: 50px;
 }
 
 .main {

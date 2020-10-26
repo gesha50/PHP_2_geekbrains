@@ -1,13 +1,14 @@
+
 {% if (isAdmin) %}
 {% include 'AdminHeader.html' %}
 
 <section class="addItem">
 
-<h2 class="heading" >Добавить новый товар!</h2>
+    <h2 class="heading" >Добавить новый товар!</h2>
 
-<div class="addCatalog">
+    <div class="addCatalog">
 
-        <form class="formEdit" method="post" action="index.php?path=admin/newItemOrUpdate" enctype="multipart/form-data">
+        <form class="formEdit" method="post" action="index.php?path=admin/updateItem" enctype="multipart/form-data">
             <div class="formEdit__container formEdit_containerForAdd">
                 <div class="formEdit__block">
                     <h4 class="formEdit__text">Введите наименование: <br><input class="formEdit__input" type="text" name="name" maxlength="100" required></h4>
@@ -19,8 +20,8 @@
                 </div>
             </div>
         </form>
-    
-</div>
+
+    </div>
 
 </section>
 

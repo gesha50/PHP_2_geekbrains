@@ -1,0 +1,42 @@
+
+.aboutUs{
+  .aboutUs__container{
+    padding: 100px 0;
+    .aboutUs__text{
+      text-align: center;
+      .aboutUs__heading{
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .aboutUs__miniText{
+        font-size: 15px;
+        max-width: 600px;
+        margin: 36px auto;
+      }
+    }
+    .aboutUs__technology{
+      margin-top: 100px;
+    }
+  }
+}
+
+.technology{
+  display: flex;
+  justify-content: space-between;
+  .technology__block{
+    width: 250px;
+    text-align: center;
+    .technology__icon{
+      color: black;
+      font-size: 62px;
+    }
+    .technology__heading{
+      font-size: 20px;
+      font-weight: 400;
+      margin: 25px 0;
+    }
+    .technology__text {
+      font-size: 15px;
+    }
+  }
+}

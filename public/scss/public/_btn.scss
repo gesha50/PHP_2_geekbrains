@@ -1,0 +1,15 @@
+
+.btn {
+  display: inline-block;
+  padding: 28px 35px;
+  outline: 3px solid $lightTextColor;
+  color: $lightTextColor;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(0,0,0,0);
+  &:hover {
+    background: $activeColor;
+    outline: none;
+  }
+}

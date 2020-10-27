@@ -1,15 +1,22 @@
 {% include 'header.html' %}
-
-<div class="">
+<section class="oneItem paddingSite">
+    <div class="oneItem__container">
     {% for item in content_data %}
+        <div class="oneItem__heading">Уникальный товар</div>
+        <div class="oneItem__outer">
+            <div class="oneItem__imgBlock">
+                <img src="{{ item.img }}" alt="" class="oneItem__img">
+            </div>
+            <div class="oneItem__text">
+                <p class="oneItem__title">{{ item.title }}</p>
+                <p class="oneItem__desc">Описание: {{ item.desc }}</p>
+                <p class="oneItem__price">Цена: {{ item.price }} руб</p>
+                <button class="oneItem__btn btn2 buy" data-id="{{ item.catalog_id }}">Добавить в корзину</button>
+            </div>
 
-    <p>{{ item.title }}</p>
-    <p>{{ item.price }}</p>
-    <p>{{ item.desc }}</p>
-    <button data-id="{{ item.catalog_id }}" class="btnBuy">Купить</button>
-
+        </div>
 
     {% endfor %}
-</div>
-
+    </div>
+</section>
 {% include 'footer.html' %}

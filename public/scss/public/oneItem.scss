@@ -1,0 +1,40 @@
+
+.oneItem {
+  .oneItem__container{
+    padding-bottom: 80px;
+    .oneItem__heading{
+      text-align: center;
+      font-size: 30px;
+      padding: 30px;
+    }
+    .oneItem__outer{
+      display: flex;
+      justify-content: space-between;
+      .oneItem__imgBlock{
+        width: 40%;
+        .oneItem__img {
+          width: 100%;
+          height: 500px;
+          object-fit: contain;
+        }
+      }
+      .oneItem__text{
+        width: 40%;
+        .oneItem__title{
+          font-size: 30px;
+          padding: 0 30px 30px;
+        }
+        .oneItem__desc{
+          font-size: 25px;
+        }
+        .oneItem__price{
+          font-size: 30px;
+          margin: 25px 0;
+        }
+        .oneItem__btn{
+
+        }
+      }
+    }
+  }
+}

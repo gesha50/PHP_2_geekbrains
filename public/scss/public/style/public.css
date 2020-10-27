@@ -8,6 +8,7 @@
 .btn {
   display: inline-block;
   padding: 28px 35px;
+  border: none;
   outline: 3px solid #fff;
   color: #fff;
   font-size: 20px;
@@ -17,6 +18,23 @@
 }
 .btn:hover {
   background: #00897b;
+  outline: none;
+}
+
+.btn2 {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  outline: 3px solid #00897b;
+  color: #00897b;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+}
+.btn2:hover {
+  background: #00897b;
+  color: white;
   outline: none;
 }
 
@@ -36,7 +54,7 @@
   display: flex;
 }
 .nav .nav__div {
-  padding: 0 20px;
+  padding: 0 15px;
 }
 .nav .nav__div .nav__link {
   text-decoration: none;
@@ -97,6 +115,82 @@
   color: white;
 }
 
+.catalog {
+  background: #f0f0f0;
+}
+.catalog .catalog__heading {
+  text-align: center;
+  font-size: 30px;
+  padding: 30px;
+}
+.catalog .catalog__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  padding-bottom: 80px;
+}
+.item {
+  background: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+.item:hover {
+  background: #e4fdf9;
+}
+.item .item__link {
+  text-decoration: none;
+}
+.item .item__link .item__heading {
+  padding: 7px;
+  color: #212121;
+}
+.item .item__link .item__img {
+  height: 250px;
+  object-fit: contain;
+}
+.item .item__link .item__price {
+  padding: 7px;
+  color: #212121;
+}
+.item .item__btn {
+  margin: 10px;
+}
+
+.oneItem .oneItem__container {
+  padding-bottom: 80px;
+}
+.oneItem .oneItem__container .oneItem__heading {
+  text-align: center;
+  font-size: 30px;
+  padding: 30px;
+}
+.oneItem .oneItem__container .oneItem__outer {
+  display: flex;
+  justify-content: space-between;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__imgBlock {
+  width: 40%;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__imgBlock .oneItem__img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__text {
+  width: 40%;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__text .oneItem__title {
+  font-size: 30px;
+  padding: 0 30px 30px;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__text .oneItem__desc {
+  font-size: 25px;
+}
+.oneItem .oneItem__container .oneItem__outer .oneItem__text .oneItem__price {
+  font-size: 30px;
+  margin: 25px 0;
+}
 .aboutUs .aboutUs__container {
   padding: 100px 0;
 }

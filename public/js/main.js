@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.btnBuy').click (function(){
+    $('.buy').click (function(){
         let id_good = $(this).attr("data-id");
         console.log(id_good)
         $.ajax({

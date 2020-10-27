@@ -2,6 +2,8 @@
 .btn {
   display: inline-block;
   padding: 28px 35px;
+  border: none;
+
   outline: 3px solid $lightTextColor;
   color: $lightTextColor;
   font-size: 20px;
@@ -10,6 +12,23 @@
   background: rgba(0,0,0,0);
   &:hover {
     background: $activeColor;
+    outline: none;
+  }
+}
+
+.btn2 {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  outline: 3px solid $activeColor;
+  color: $activeColor;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(0,0,0,0);
+  &:hover {
+    background: $activeColor;
+    color: white;
     outline: none;
   }
 }

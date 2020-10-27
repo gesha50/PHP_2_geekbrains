@@ -1,0 +1,46 @@
+
+.catalog {
+  background: $fonColor3;
+  .catalog__heading {
+    text-align: center;
+    font-size: 30px;
+    padding: 30px;
+  }
+  .catalog__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    padding-bottom: 80px;
+    .catalog__item {
+
+    }
+  }
+}
+
+.item {
+  background: $fonColor1;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  &:hover {
+    background: $fonColor2;
+  }
+  .item__link {
+    text-decoration: none;
+    .item__heading{
+      padding: 7px;
+      color: $darkTextColor;
+    }
+    .item__img {
+      height: 250px;
+      object-fit: contain;
+    }
+    .item__price {
+      padding: 7px;
+      color: $darkTextColor;
+    }
+  }
+  .item__btn {
+    margin: 10px;
+  }
+}

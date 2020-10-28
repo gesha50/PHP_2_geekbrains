@@ -4,6 +4,7 @@ class OrderController extends Controller
 {
     public $view = 'order';
     public $title;
+    public $order_id;
 
     public function __construct()
     {
@@ -53,6 +54,14 @@ class OrderController extends Controller
         $obj = new Order($delivery,$name,$phone,$persons,$pay,$desiredTime,$money,$address,$comment);
         $obj->copyToManager();
         $obj->deleteFromCart();
-        return $obj->order_id;
+        $this->order_id = $obj->order_id;
+        $res = $obj->order_id;
+        // Для того чтобы форма повторно не отправлялась!
+        header('location: index.php?path=order/getOrderId&res='.$res);
+    }
+
+   public function getOrderId()
+    {
+        return (int)$_GET['res'];
     }
 }

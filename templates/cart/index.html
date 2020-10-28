@@ -1,62 +1,88 @@
 {% include 'header.html' %}
+<hr>
+<section class="cart">
 
-
-
-<div class="cartCatalog">
+<div class="cart__container paddingSite">
+    <div class="cart__heading">Корзина товаров</div>
+    <div class="cart__itemContainer">
     {% for item in content_data[0] %}
-        <div class="cartItem">
-            <a href="index.php?path=catalog/oneGood/{{ item.id_catalog }}">
-               <h3>{{ item.title }}</h3>{#<img class="img" src="#" alt="фото">#}
-            </a>
-                <p>Цена: {{ item.price }}</p>
-            <div>
-                <div class="count__div">Кол-во: </div>
-                <span onclick="decrement({{ item.id_catalog }})" id="dec_{{ item.id_catalog }}" class="btn decrement">-</span>
-                <span id="value__counter_{{ item.id_catalog }}">{{ item.counter }}</span>
-                <span onclick="increment({{ item.id_catalog }})" id="inc_{{ item.id_catalog }}" class="btn increment">+</span>
-
+        <div class="cart__item">
+            <div class="itemInCart">
+                <div class="itemInCart__block">
+                    <img class="itemInCart__img" src="{{ item.img }}" alt="#" class="itemInCart__img">
+                </div>
+                <div class="itemInCart__block">
+                    <a class="itemInCart__link" href="index.php?path=catalog/oneGood/{{ item.id_catalog }}">
+                        <h3>{{ item.title }}</h3>
+                    </a>
+                </div>
+                <div class="itemInCart__block">
+                    <p>{{ item.price }} руб</p>
+                </div>
+                <div class="itemInCart__block itemInCart__counter">
+                    <span onclick="decrement({{ item.id_catalog }})" id="dec_{{ item.id_catalog }}" class="itemInCart__btn decrement"><i class="fas fa-minus"></i></span>
+                    <span class="itemInCart__number" id="value__counter_{{ item.id_catalog }}">{{ item.counter }}</span>
+                    <span onclick="increment({{ item.id_catalog }})" id="inc_{{ item.id_catalog }}" class="itemInCart__btn increment"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="itemInCart__block">
+                    <p>Всего: {{ item.price * item.counter }} руб</p>
+                </div>
             </div>
-            <p>Всего: {{ item.price * item.counter }}</p>
-
         </div>
     {% endfor %}
-
+    </div>
     {% for price in content_data[1] %}
-        <div class="totalDiv">
-    <p class="totalPrice" >Итоговая стоимость: {{ price.total }} руб</p>
+        <div class="cart__total">
+            <p class="cart__totalPrice" >Итоговая стоимость: <strong>{{ price.total }}</strong> руб</p>
         </div>
     {% endfor %}
+
 </div>
-<div class="cartInput"><div class="formClientInfo">
-        <form class="formOrder" id="formOrder" action="index.php?path=order" method="post">
-            <label for="typeSend">Выберите тип доставки:</label><br><br>
-            <input type="radio" name="typeSend" value="1"><span>Курьерская</span>
-            <input type="radio" name="typeSend" value="0" checked><span>Самовывоз</span><br>
-            <label for="inputName" class="">Имя</label><br>
-            <input type="text" name="name" id="inputName" placeholder="Введите имя"><br>
-            <label for="inputPhone" class="">Телефон</label><br>
-            <div class="inputGroup"><input type="text" name="phone" class="rowGoods nameFull" placeholder="Введите номер телефона"></div><br>
-            <label for="inputPersons" class="">Количество персон</label><br>
-            <input type="text" name="persons" id="inputPersons" placeholder="Введите Количество персон"><br>
-            <label for="inputtypepay" class="">Способ оплаты</label><br>
-            <select class="form-control input-sm" name="pay" id="inputtypepay"><br>
+</section>
+<section class="reg zakaz">
+
+<div class="reg__container">
+    <div class="reg__form">
+        <div class="formReg">
+        <form class="formReg__form" id="formOrder" action="index.php?path=order" method="post">
+            <div class="formReg_twoColumn">
+            <div class="formReg_block">
+            <label class="formReg__text" for="typeSend">Выберите тип доставки:</label>
+            <input class="formReg_radioZakaz " type="radio" name="typeSend" value="1"><span>Курьерская</span>
+            <input class="formReg_radioZakaz" type="radio" name="typeSend" value="0" checked><span>Самовывоз</span>
+            <label class="formReg__text" for="inputName" class="">Имя</label>
+            <input class="formReg__input" type="text" name="name" id="inputName" placeholder="Введите имя">
+            <label class="formReg__text" for="inputPhone" class="">Телефон</label>
+            <div class="inputGroup">
+                <input class="formReg__input" type="text" name="phone" class="rowGoods nameFull" placeholder="Введите номер телефона">
+            </div>
+            <label class="formReg__text" for="inputPersons" class="">Количество персон</label>
+            <input class="formReg__input" type="text" name="persons" id="inputPersons" placeholder="Введите Количество персон">
+            <label class="formReg__text" for="inputtypepay" class="">Способ оплаты</label>
+            <select class="form-control input-sm" name="pay" id="inputtypepay">
                 <option value="0">Наличные</option>
                 <option value="1">Кредитная карта</option>
-            </select><br><br>
-            <label for="inputTime" class="">Заказ на время</label><br>
-            <input type="text" name="desiredTime" id="inputTime" placeholder="Введите желаемое время исполнения заказа"><br>
-            <label for="inputMoney" class="">Сдача</label><br>
-            <input type="text" name="money" id="inputMoney" placeholder="С какой купюры приготовить сдачу"><br>
-            <label for="inputAddress" class="">Адрес</label><br>
-            <textarea type="text" name="address" id="inputAddress" placeholder="Адрес доставки"></textarea><br>
-            <label for="inputComment" class="">Комментарий</label><br>
-            <textarea type="text" name="comment" id="inputComment" placeholder="Комментарий к заказу"></textarea><br>
+            </select>
+            </div>
+            <div class="formReg_block">
+            <label class="formReg__text" for="inputTime" class="">Заказ на время</label>
+            <input class="formReg__input" type="text" name="desiredTime" id="inputTime" placeholder="Введите желаемое время исполнения заказа">
+            <label class="formReg__text" for="inputMoney" class="">Сдача</label>
+            <input class="formReg__input" type="text" name="money" id="inputMoney" placeholder="С какой купюры сдачу">
+            <label class="formReg__text" for="inputAddress" class="">Адрес</label>
+            <textarea class="formReg__input" type="text" name="address" id="inputAddress" placeholder="Адрес доставки"></textarea>
+            <label class="formReg__text" for="inputComment" class="">Комментарий</label>
+            <textarea class="formReg__input" type="text" name="comment" id="inputComment" placeholder="Комментарий к заказу"></textarea>
             <input type="hidden"  name="totalCoast" value="123456!">
-            <input type="submit" name="order" class="btn btn-primary" value="Заказать!">
+            </div></div>
+            <input type="submit" name="order" class="btn2 btn-primary" value="Заказать!">
+
         </form>
+        </div>
     </div>
 
 </div>
+</section>
 
 
 

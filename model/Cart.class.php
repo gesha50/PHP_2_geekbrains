@@ -13,7 +13,7 @@ class Cart
     }
 
     public function getGoods () {
-        $res[0] = db::getInstance()->Select("SELECT id_catalog, title, price, counter FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id WHERE id_user = :id_user ", ['id_user' => $this->id_user]);
+        $res[0] = db::getInstance()->Select("SELECT id_catalog, title, price, counter,img FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id WHERE id_user = :id_user ", ['id_user' => $this->id_user]);
         $res[1] = db::getInstance()->Select('SELECT sum(price*counter) as total FROM basket INNER JOIN catalog on basket.id_catalog = catalog.catalog_id WHERE id_user = :id_user', ['id_user' => $this->id_user]);
         return $res;
     }

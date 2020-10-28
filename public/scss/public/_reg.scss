@@ -1,0 +1,60 @@
+
+
+.reg {
+  .reg__container{
+    padding: 0 0 80px;
+    .reg__heading{
+      text-align: center;
+      font-size: 30px;
+      padding: 30px;
+    }
+    .reg__answer{
+
+    }
+    .reg__form {
+      text-align: center;
+    }
+  }
+}
+
+.formReg{
+  border-radius: 10px;
+  border: 2px solid $activeColor;
+  display: inline-block;
+  margin: auto;
+  .formReg__form {
+    border-radius: 10px;
+    background: $fonColor2;
+    padding: 40px;
+    .formReg__text {
+      font-size: 20px;
+      display: block;
+    }
+    .formReg__input{
+      display: block;
+      margin: 5px auto;
+      padding: 4%;
+      background: $fonColor1;
+      border: none;
+      border-radius: 5px;
+      color: $darkTextColor;
+    }
+    .formReg__btn {
+      margin-top: 10px;
+    }
+  }
+  .formReg_twoColumn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+    .formReg_block {
+
+    }
+  }
+}
+
+.formReg_radioZakaz {
+  display: inline;
+  margin: 20px 5px;
+}
+

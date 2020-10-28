@@ -45,24 +45,30 @@ function renderCart() {
             alert("Что-то пошло не так...");
         },
         success: function(answer){
-            let elem = document.querySelector('.cartCatalog')
+            let elem = document.querySelector('.cart__itemContainer')
             if (answer['content_data'][0].length) {
                 for (key in answer['content_data'][0]) {
-                    item = '<div class="cartItem">'
-                    item += '<a href="index.php?path=catalog/oneGood/' + answer['content_data'][0][key].id_catalog + '">'
-                    item += ' <h3>' + answer['content_data'][0][key].title + '</h3></a>'
-                    item += '<p>Цена: ' + answer['content_data'][0][key].price + '</p>'
-                    item += '<div><div class="count__div">Кол-во: </div>'
-                    item += '<span onclick="decrement(' + answer['content_data'][0][key].id_catalog + ')" id="dec_' + answer['content_data'][0][key].id_catalog + '" data-id="' + answer['content_data'][0][key].id_catalog + '" class="btn decrement">-</span>'
-                    item += '<span id="value__counter_' + answer['content_data'][0][key].id_catalog + '">' + answer['content_data'][0][key].counter + '</span>'
-                    item += '<span onclick="increment(' + answer['content_data'][0][key].id_catalog + ')" id="inc_' + answer['content_data'][0][key].id_catalog + '" data-id="' + answer['content_data'][0][key].id_catalog + '" class="btn increment">+</span></div>'
-                    item += '<p>Всего: ' + answer['content_data'][0][key].price * answer['content_data'][0][key].counter + '</p></div>'
+                    item = '<div class="cart__item">'
+                    item += '<div class="itemInCart">'
+                    item += '<div class="itemInCart__block">'
+                    item += '<img class="itemInCart__img" src="' + answer['content_data'][0][key].img + '" alt="#" class="itemInCart__img"></div>'
+                    item += '<div class="itemInCart__block">'
+                    item += '<a class="itemInCart__link" href="index.php?path=catalog/oneGood/' + answer['content_data'][0][key].id_catalog + '">'
+                    item += '<h3>' + answer['content_data'][0][key].title + '</h3></a></div>'
+                    item += '<div class="itemInCart__block"><p>' + answer['content_data'][0][key].price + ' руб</p></div>'
+                    item += '<div class="itemInCart__block itemInCart__counter">'
+                    item += '<span onclick="decrement(' + answer['content_data'][0][key].id_catalog + ')" id="dec_{{ item.id_catalog }}" class="itemInCart__btn decrement"><i class="fas fa-minus"></i></span>'
+                    item += '<span class="itemInCart__number" id="value__counter_' + answer['content_data'][0][key].id_catalog + '">' + answer['content_data'][0][key].counter + '</span>'
+                    item += '<span onclick="increment(' + answer['content_data'][0][key].id_catalog + ')" id="inc_{{ item.id_catalog }}" class="itemInCart__btn increment"><i class="fas fa-plus"></i></span>'
+                    item += '</div>'
+                    item += '<div class="itemInCart__block"><p>Всего: ' + answer['content_data'][0][key].price * answer['content_data'][0][key].counter + ' руб</p></div>'
+                    item += '</div></div>'
                     if (key == 0) {
                         elem.innerHTML = '';
                     }
                     elem.innerHTML += item
                 }
-                elem.innerHTML += '<div class="totalDiv"><p class="totalPrice" >Итоговая стоимость: ' + answer['content_data'][1][0].total + ' руб</p></div>'
+                $('.cart__total').html('<p class="cart__totalPrice" >Итоговая стоимость: <strong>' + answer['content_data'][1][0].total + '</strong> руб</p>')
             } else {
                 elem.innerHTML = "Корзина пуста =("
             }

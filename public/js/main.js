@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('.buy').click (function(){
         let id_good = $(this).attr("data-id");
-        console.log(id_good)
         $.ajax({
             url: "index.php?path=Catalog/add/",
             type: "GET",
@@ -45,6 +44,7 @@ function renderCart() {
             alert("Что-то пошло не так...");
         },
         success: function(answer){
+            console.log(answer)
             let elem = document.querySelector('.cart__itemContainer')
             if (answer['content_data'][0].length) {
                 for (key in answer['content_data'][0]) {
@@ -64,13 +64,15 @@ function renderCart() {
                     item += '<div class="itemInCart__block"><p>Всего: ' + answer['content_data'][0][key].price * answer['content_data'][0][key].counter + ' руб</p></div>'
                     item += '</div></div>'
                     if (key == 0) {
-                        elem.innerHTML = '';
+                        elem.innerHTML = ''
                     }
                     elem.innerHTML += item
                 }
                 $('.cart__total').html('<p class="cart__totalPrice" >Итоговая стоимость: <strong>' + answer['content_data'][1][0].total + '</strong> руб</p>')
             } else {
-                elem.innerHTML = "Корзина пуста =("
+                elem.innerHTML = " "
+                $('.cart__empty').html('Корзина пустая :(')
+                $('.cart__total').html('')
             }
         }
     })

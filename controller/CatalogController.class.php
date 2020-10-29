@@ -14,7 +14,9 @@ class CatalogController extends Controller
     public function index(){
         $obj = new Catalog();
         //нужно получить данные из модели и вернуть их для отображения в представлении
-        return $obj->getGoods();
+        $res['items'] = $obj->getGoods();
+        $res['active'] .= (int)$_GET['active'];
+        return $res;
     }
 
     public function oneGood($id){

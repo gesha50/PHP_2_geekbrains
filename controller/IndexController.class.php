@@ -13,7 +13,8 @@ class IndexController extends Controller
 	
 	//метод, который отправляет в представление информацию в виде переменной content_data
 	function index($data){
-		 return "Главная стрница!";
+        $res['active'] = (int)$_GET['active'];
+		 return $res;
 	}
 
 

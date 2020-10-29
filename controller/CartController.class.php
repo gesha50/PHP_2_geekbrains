@@ -18,7 +18,9 @@ class CartController extends Controller
             $_GET['asAjax'] = true;
         }
         $obj = new Cart();
-        return $obj->getGoods();
+        $res = $obj->getGoods();
+        $res['active'] = $_GET['active'];
+        return $res;
     }
 
     public function increment ($a){

@@ -4,13 +4,17 @@ class UserController extends Controller
 {
     public $view = 'user';
     public $title;
+    public $active;
 
     public function __construct()
     {
        parent::__construct();
+       $this->active = (int)$_GET['active'];
+
     }
 
     public function reg(){
+        $res['active'] = $this->active;
         $obj = new User();
         $isLogin = $obj->isUserLogin();
         if ($isLogin) {
@@ -34,12 +38,16 @@ class UserController extends Controller
             $pass = trim(strip_tags($_POST['pass']));
 
             $obj->newUser($login, $email, md5($pass));
-            return $res = ['text' => "Вы успешно зарегестрировались!", 'status' => 1];
+            $res['text'] .= "Вы успешно зарегестрировались!";
+            $res['status'] .= 1;
+            return $res;
 
         }
+        return $res;
     }
 
     public function login(){
+        $res['active'] = $this->active;
         $obj = new User();
         $isLogin = $obj->isUserLogin();
         if ($isLogin) {
@@ -58,18 +66,21 @@ class UserController extends Controller
                     }
                     $_SESSION['login'] = $login;
                     $_SESSION['pass'] = $pass;
-                    header("Location: index.php?path=user/cabinet");
+                    header("Location: index.php?path=user/cabinet&active=3");
                 } else{
                     $message = "Не правильно ввели данные!";
                 }
             }
-            return $res = ['text' => $message];
+            return $res['text'] .= $message;
         }
+        return $res;
 
     }
 
     public function cabinet(){
-        return $_SESSION['login'];
+        $res['active'] = $this->active;
+        $res['login'] .= $_SESSION['login'];
+        return $res;
     }
 
     public function destroy(){

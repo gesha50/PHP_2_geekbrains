@@ -4,6 +4,7 @@
 
 <div class="cart__container paddingSite">
     <div class="cart__heading">Корзина товаров</div>
+    <h3 class="cart__empty"></h3>
     <div class="cart__itemContainer">
     {% for item in content_data[0] %}
         <div class="cart__item">
@@ -31,11 +32,13 @@
         </div>
     {% endfor %}
     </div>
-    {% for price in content_data[1] %}
+    {% if (content_data[1][0].total) %}
         <div class="cart__total">
-            <p class="cart__totalPrice" >Итоговая стоимость: <strong>{{ price.total }}</strong> руб</p>
+            <p class="cart__totalPrice" >Итоговая стоимость: <strong>{{ content_data[1][0].total }}</strong> руб</p>
         </div>
-    {% endfor %}
+    {% else %}
+        <h3 class="cart__empty">Корзина пустая :( </h3>
+    {% endif %}
 
 </div>
 </section>

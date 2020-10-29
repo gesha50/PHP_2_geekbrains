@@ -3,7 +3,7 @@
 <section class="catalog paddingSite">
     <h3 class="catalog__heading">Каталог товаров</h3>
     <div class="catalog__container">
-{% for catalog in content_data %}
+{% for catalog in content_data['items'] %}
     <div class="catalog__item">
      <div class="item">
         <a class="item__link" href="index.php?path=catalog/oneGood/{{ catalog.catalog_id }}">

@@ -22,17 +22,17 @@
             {% if (isAdmin) %}
             <div class="nav__div"><a class="nav__link" href="index.php?path=admin/1">Админка</a></div>
             {% endif %}
-            <div class="nav__div"><a class="nav__link" href="index.php">Главная</a></div>
-            <div class="nav__div"><a class="nav__link" href="index.php?path=catalog">Каталог</a></div>
+            <div class="nav__div"><a class="nav__link {% if content_data.active == 1 %}active{%endif %}" href="index.php?active=1">Главная</a></div>
+            <div class="nav__div"><a class="nav__link {% if content_data.active == 2 %}active{%endif %}" href="index.php?path=catalog&active=2">Каталог</a></div>
             {% if (isUserLogin) %}
-            <div class="nav__div"><a class="nav__link" href="index.php?path=user/cabinet">Кабинет</a></div>
+            <div class="nav__div"><a class="nav__link {% if content_data.active == 3 %}active{%endif %}" href="index.php?path=user/cabinet&active=3">Кабинет</a></div>
             <div class="nav__div"><a class="nav__link" href="index.php?path=user/destroy">Выход</a></div>
             {%  else  %}
-            <div class="nav__div"><a class="nav__link" href="index.php?path=user/reg">Регистрация</a></div>
-            <div class="nav__div"><a class="nav__link" href="index.php?path=user/login">Войти</a></div>
+            <div class="nav__div"><a class="nav__link {% if content_data.active == 4 %}active{%endif %}" href="index.php?path=user/reg&active=4">Регистрация</a></div>
+            <div class="nav__div"><a class="nav__link {% if content_data.active == 5 %}active{%endif %}" href="index.php?path=user/login&active=5">Войти</a></div>
             {% endif %}
             <div class="nav__div">
-                <div class="cart"><a class="cart__link nav__link" href="index.php?path=cart"><i class="fas fa-shopping-basket"></i></a>
+                <div class="cart"><a class="cart__link nav__link {% if content_data.active == 6 %}active{%endif %}" href="index.php?path=cart&active=6"><i class="fas fa-shopping-basket"></i></a>
                 <!--            Если корзина пустая, то 0 не показываем-->
                     <span id="cart__counter">{{ cartQuantity }}</span>
                 </div>

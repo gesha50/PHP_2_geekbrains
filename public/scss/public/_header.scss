@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   //для фиксации хеадера!!!
-  //position: fixed;
-  //background: white;
-  //width: 940px;
+  position: fixed;
+  background: white;
+  width: 940px;
+  box-shadow: 0px 5px 17px rgba(240, 240, 240, 0.7);
 }
 
 .logo_name {
@@ -31,6 +32,10 @@
         color: $activeColor;
         background: $fonColor3;
       }
+    }
+    .active {
+      color: $activeColor;
+      background: $fonColor3;
     }
   }
 }

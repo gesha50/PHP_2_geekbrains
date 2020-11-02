@@ -31,7 +31,7 @@
 .itemInCart{
   margin: 30px 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 3fr 1fr 1fr;
   grid-gap: 10px;
   align-items: center;
   justify-items: center;
@@ -73,5 +73,28 @@
     .itemInCart__number {
       line-height: 35px;
     }
+  }
+  @media all and (max-width: 576px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    .itemInCart__block {
+      .itemInCart__img{
+        width: 75px;
+      }
+    }
+    .itemInCart__counter{
+      .itemInCart__btn {
+
+      }
+    }
+  }
+}
+
+.itemInCart__block_big{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  @media all and (max-width: 576px){
+    grid-template-columns: 1fr;
   }
 }

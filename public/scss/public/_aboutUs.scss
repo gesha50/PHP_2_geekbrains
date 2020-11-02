@@ -21,8 +21,6 @@
 }
 
 .technology{
-  display: flex;
-  justify-content: space-between;
   .technology__block{
     width: 250px;
     text-align: center;
@@ -38,5 +36,14 @@
     .technology__text {
       font-size: 15px;
     }
+  }
+  @media (min-width: 576px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @media all and (max-width: 576px) {
+    display: grid;
+    grid-gap: 30px;
+    justify-items: center;
   }
 }

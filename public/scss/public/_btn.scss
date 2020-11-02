@@ -3,7 +3,6 @@
   display: inline-block;
   padding: 28px 35px;
   border: none;
-
   outline: 3px solid $lightTextColor;
   color: $lightTextColor;
   font-size: 20px;
@@ -13,6 +12,10 @@
   &:hover {
     background: $activeColor;
     outline: none;
+  }
+  @media all and (max-width: 576px) {
+    padding: 15px 18px;
+    font-size: 15px;
   }
 }
 

@@ -1,5 +1,4 @@
 {% include 'header.html' %}
-<hr>
 <section class="cart">
 
 <div class="cart__container paddingSite">
@@ -9,15 +8,11 @@
     {% for item in content_data[0] %}
         <div class="cart__item">
             <div class="itemInCart">
-                <div class="itemInCart__block">
+                <div class="itemInCart__block itemInCart__block_big">
                     <img class="itemInCart__img" src="{{ item.img }}" alt="#" class="itemInCart__img">
-                </div>
-                <div class="itemInCart__block">
                     <a class="itemInCart__link" href="index.php?path=catalog/oneGood/{{ item.id_catalog }}">
                         <h3>{{ item.title }}</h3>
                     </a>
-                </div>
-                <div class="itemInCart__block">
                     <p>{{ item.price }} руб</p>
                 </div>
                 <div class="itemInCart__block itemInCart__counter">

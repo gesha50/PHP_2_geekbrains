@@ -3,6 +3,8 @@ $config['db_user'] = 'root';
 $config['db_password'] = 'root';
 $config['db_base'] = 'mvc_2';
 $config['db_host'] = 'localhost';
+
+
 $config['db_charset'] = 'UTF-8';
 
 $config['path_root'] = __DIR__;

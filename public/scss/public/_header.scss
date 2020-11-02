@@ -4,9 +4,55 @@
   justify-content: space-between;
   //для фиксации хеадера!!!
   position: fixed;
-  background: white;
-  width: 940px;
-  box-shadow: 0px 5px 17px rgba(240, 240, 240, 0.7);
+  background: $fonColor1;
+  box-shadow: 0 5px 17px rgba(240, 240, 240, 0.7);
+  #switcher{
+    position: absolute;
+    left: -99999999px;
+    visibility: hidden;
+  }
+  .header__nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav__menu {
+    padding: 0 10px;
+    &:hover{
+      color: $activeColor;
+      background: $fonColor3;
+    }
+  }
+
+  @media (min-width: 1200px){
+    width: 940px;
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    left: 0;
+    width: 93%;
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    left: 0;
+    width: 97%;
+  }
+  @media (min-width: 768px){
+    .nav__menu{
+      display: none;
+    }
+  }
+  @media all and (max-width: 768px) {
+    position: fixed;
+    width: 100%;
+    .nav__menu{
+      display: block;
+      i{
+        font-size: 35px;
+        line-height: 62px;
+      }
+    }
+    #switcher:checked~.header__nav nav {
+      left: 0;
+    }
+  }
 }
 
 .logo_name {
@@ -20,6 +66,9 @@
   display: flex;
   .nav__div{
     padding: 0 15px;
+    @media (min-width: 768px) and (max-width: 992px) {
+      padding: 0;
+    }
     .nav__link {
       text-decoration: none;
       font-family: "Open Sans";
@@ -38,9 +87,41 @@
       background: $fonColor3;
     }
   }
+  @media (max-width: 768px) {
+    display: block;
+    margin-top: 100px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    left: -100%;
+    transition: left .4s;
+    z-index: 10;
+    &__div {
+      display: block;
+      padding: 10px;
+      background: #e7e1e1;
+    }
+    &__link{
+      display: inline;
+    }
+  }
 }
 
-.cart {
+.headerCart {
+  align-self: center;
+  margin-right: 15px;
+  .cart__link{
+    text-decoration: none;
+    font-family: "Open Sans";
+    display: inline-block;
+    padding: 15px;
+    font-size: 20px;
+    color: $darkTextColor;
+    &:hover{
+      color: $activeColor;
+      background: $fonColor3;
+    }
+  }
   #cart__counter {
     display: inline-block;
     width: 15px;

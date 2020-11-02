@@ -36,6 +36,34 @@
         position: absolute;
         font-size: 25px;
         color: white;
+        top: 725px;
+      }
+    }
+  }
+  @media all and (max-width: 576px) {
+    height: 400px;
+    .slider__fon{
+      .slider__container{
+        padding: 60px 0;
+        .slider__text{
+          .slider__heading{
+            font-size: 35px;
+          }
+          .slider__miniText {
+            font-size: 15px;
+          }
+        }
+        .slider__btnContainer {
+          padding-top: 50px;
+          .slider__btnMargin{
+            margin: auto;
+          }
+        }
+      }
+      .slider__down{
+        .slider__downI {
+          top: 425px;
+        }
       }
     }
   }

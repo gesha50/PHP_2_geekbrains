@@ -49,13 +49,12 @@ function renderCart() {
             if (answer['content_data'][0].length) {
                 for (key in answer['content_data'][0]) {
                     item = '<div class="cart__item">'
-                    item += '<div class="itemInCart">'
-                    item += '<div class="itemInCart__block">'
-                    item += '<img class="itemInCart__img" src="' + answer['content_data'][0][key].img + '" alt="#" class="itemInCart__img"></div>'
-                    item += '<div class="itemInCart__block">'
+                    item += '<div class="itemInCart ">'
+                    item += '<div class="itemInCart__block itemInCart__block_big">'
+                    item += '<img class="itemInCart__img" src="' + answer['content_data'][0][key].img + '" alt="#" class="itemInCart__img">'
                     item += '<a class="itemInCart__link" href="index.php?path=catalog/oneGood/' + answer['content_data'][0][key].id_catalog + '">'
-                    item += '<h3>' + answer['content_data'][0][key].title + '</h3></a></div>'
-                    item += '<div class="itemInCart__block"><p>' + answer['content_data'][0][key].price + ' руб</p></div>'
+                    item += '<h3>' + answer['content_data'][0][key].title + '</h3></a>'
+                    item += '<p>' + answer['content_data'][0][key].price + ' руб</p></div>'
                     item += '<div class="itemInCart__block itemInCart__counter">'
                     item += '<span onclick="decrement(' + answer['content_data'][0][key].id_catalog + ')" id="dec_{{ item.id_catalog }}" class="itemInCart__btn decrement"><i class="fas fa-minus"></i></span>'
                     item += '<span class="itemInCart__number" id="value__counter_' + answer['content_data'][0][key].id_catalog + '">' + answer['content_data'][0][key].counter + '</span>'

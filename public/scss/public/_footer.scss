@@ -4,14 +4,10 @@
   // относительно style.CSS !!!
   background: url("../../../img/css/footer.jpg") center center;
   background-size: cover;
-  //width: 100%;
   color: $lightTextColor;
   .footer__fon{
     background: rgb(0 0 0 / 65%);
-    //width: 100%;
-    //height: 100%;
     .footer__container {
-      padding: 100px 125px;
       text-align: center;
       .footer__text{
         font-weight: 700;
@@ -24,7 +20,6 @@
         }
       }
       .footer__contact{
-        margin: 90px 0;
       }
     }
     .footer__message{
@@ -49,19 +44,181 @@
         display: block;
         margin: 30px auto;
         width: 98%;
-        height: 300px;
         padding: 20px 0 0 2%;
       }
       .footer__btn {
       }
     }
   }
+  @media (min-width: 1200px){
+    .footer__fon {
+      .footer__container {
+        padding: 100px 125px;
+        .footer__text{
+          .footer__heading {
+
+          }
+          .footer__miniText{
+
+          }
+        }
+        .footer__contact{
+          margin: 90px 0;
+        }
+      }
+      .footer__message {
+        .footer__forInput{
+          .footer__input{
+
+          }
+        }
+        .footer__textarea{
+
+        }
+        .footer__btn{
+
+        }
+      }
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .footer__fon {
+      .footer__container {
+        padding: 75px 100px;
+        .footer__text{
+          .footer__heading {
+
+          }
+          .footer__miniText{
+
+          }
+        }
+        .footer__contact{
+          margin: 80px 0;
+        }
+      }
+      .footer__message {
+        .footer__forInput{
+          .footer__input{
+
+          }
+        }
+        .footer__textarea{
+
+        }
+        .footer__btn{
+
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    .footer__fon {
+      .footer__container {
+        padding: 50px 75px;
+        .footer__text{
+          .footer__heading {
+
+          }
+          .footer__miniText{
+
+          }
+        }
+        .footer__contact{
+          margin: 70px 0;
+        }
+      }
+      .footer__message {
+        .footer__forInput{
+          .footer__input{
+
+          }
+        }
+        .footer__textarea{
+
+        }
+        .footer__btn{
+
+        }
+      }
+    }
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    .footer__fon {
+      .footer__container {
+        padding: 25px 20px;
+
+        .footer__text{
+          .footer__heading {
+
+          }
+          .footer__miniText{
+
+          }
+        }
+        .footer__contact{
+          margin: 60px 0;
+        }
+      }
+      .footer__message {
+        .footer__forInput{
+          .footer__input{
+
+          }
+        }
+        .footer__textarea{
+
+        }
+        .footer__btn{
+
+        }
+      }
+    }
+  }
+  @media all and (max-width: 576px) {
+    .footer__fon {
+      .footer__container {
+        padding: 20px 10px;
+
+        .footer__text{
+          .footer__heading {
+
+          }
+          .footer__miniText{
+
+          }
+        }
+        .footer__contact{
+          margin: 50px 0;
+        }
+      }
+      .footer__message {
+        .footer__forInput{
+          display: block;
+          .footer__input{
+            display: block;
+            margin: 15px auto;
+            width: 80%;
+          }
+        }
+        .footer__textarea{
+          margin: 20px auto;
+          width: 86%;
+        }
+        .footer__btn{
+
+        }
+      }
+    }
+  }
 }
+
 
 .contact{
   display: flex;
   justify-content: space-between;
   .contact__block {
+    width: 235px;
     .contact__iconDiv{
       margin: auto;
       width: 105px;
@@ -74,8 +231,77 @@
       }
     }
     .contact__text {
-      font-size: 20px;
       margin-top: 30px;
+    }
+  }
+  @media (min-width: 1200px){
+    .contact__block{
+      .contact__iconDiv{
+        .contact__icon{
+
+        }
+      }
+      .contact__text{
+        font-size: 20px;
+      }
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .contact__block{
+      .contact__iconDiv{
+        .contact__icon{
+
+        }
+      }
+      .contact__text{
+        font-size: 20px;
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    .contact__block{
+      .contact__iconDiv{
+        .contact__icon{
+
+        }
+      }
+      .contact__text{
+        font-size: 17px;
+      }
+    }
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    .contact__block{
+      .contact__iconDiv{
+        .contact__icon{
+
+        }
+      }
+      .contact__text{
+
+      }
+    }
+  }
+  @media all and (max-width: 576px) {
+    display: block;
+    .contact__block{
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      .contact__iconDiv{
+        margin: 0;
+        width: 65px;
+        height: 65px;
+        .contact__icon{
+          font-size: 25px;
+          line-height: 65px;
+        }
+      }
+      .contact__text{
+        margin-top: 0;
+      }
     }
   }
 }

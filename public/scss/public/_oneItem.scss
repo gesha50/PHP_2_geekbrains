@@ -35,6 +35,18 @@
 
         }
       }
+      @media all and (max-width: 576px) {
+        display: block;
+        .oneItem__imgBlock,
+        .oneItem__text {
+          width: 100%;
+        }
+        .oneItem__text{
+          .oneItem__title{
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }
